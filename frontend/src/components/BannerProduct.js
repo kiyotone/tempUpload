@@ -7,7 +7,7 @@ import "swiper/css/pagination";
 
 const BannerProduct = () => {
   return (
-    <div className="max-h-[500px] relative">
+    <div className="max-h-[600px] relative">
         <Swiper
           spaceBetween={30}
           centeredSlides={true}
