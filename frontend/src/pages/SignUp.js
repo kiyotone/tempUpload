@@ -6,6 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import imageTobase64 from "../helpers/imageTobase64";
 import SummaryApi from "../common";
 import { toast } from "react-toastify";
+import uploadImage from "../helpers/uploadImage";
 
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -33,12 +34,12 @@ const SignUp = () => {
   const handleUploadPic = async (e) => {
     const file = e.target.files[0];
 
-    const imagePic = await imageTobase64(file);
+    const imagePic = await uploadImage(file);
 
     setData((preve) => {
       return {
         ...preve,
-        profilePic: imagePic,
+        profilePic: imagePic.url,
       };
     });
   };
@@ -76,7 +77,7 @@ const SignUp = () => {
         <div className="bg-white p-5 w-full max-w-sm mx-auto">
           <div className="w-20 h-20 mx-auto relative overflow-hidden rounded-full">
             <div>
-              <img src={data.profilePic || loginIcons} alt="login icons" />
+              <img src={data.profilePic|| loginIcons} alt="login icons" />
             </div>
             <form>
               <label>
