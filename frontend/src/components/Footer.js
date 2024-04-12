@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import { FaPhone } from "react-icons/fa6";
 import { CgMail } from "react-icons/cg";
 import { TiLocation } from "react-icons/ti";
@@ -7,10 +7,9 @@ import { FaFacebook } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 
-
 const Footer = () => {
   return (
-    <div >
+    <div>
       <div className="bg-[#f1f5f9] h-[38rem] w-full flex flex-col mini:flex-row mini:h-[18.9rem]">
         <div className="h-[12 rem] w-full  mini:w-[26rem]">
           <h1 className="flex items-center justify-center pt-8 font-logo2 text-4xl">
@@ -18,8 +17,10 @@ const Footer = () => {
           </h1>
           <div className="mt-3 mini:h-[14 rem] w-full h-[6rem] mini:w-[25rem] mini:gap-x-6  ">
             <h1 className="font-serif text-center mini:h-24">
-           
-"Revolutionize your ride with our top-tier selection of bike parts and accessories. From the latest in performance technology to must-have maintenance essentials, we've got everything you need to elevate your cycling experience."
+              "Revolutionize your ride with our top-tier selection of bike parts
+              and accessories. From the latest in performance technology to
+              must-have maintenance essentials, we've got everything you need to
+              elevate your cycling experience."
             </h1>
             <div className="flex flex-row justify-center items-center mt-12">
               <div className="flex items-center justify-center space-x-4">
@@ -135,7 +136,7 @@ const Footer = () => {
         </p>
       </footer>
     </div>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;
