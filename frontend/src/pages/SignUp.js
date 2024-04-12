@@ -6,7 +6,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import imageTobase64 from '../helpers/imageTobase64';
 import SummaryApi from '../common';
 import { toast } from 'react-toastify';
-import images from '../assest/banner/payment.png'
 
 const SignUp = () => {
   const [showPassword,setShowPassword] = useState(false)

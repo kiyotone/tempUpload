@@ -6,7 +6,7 @@ import { FaTwitter } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
-import images from '../assest/banner/payment.png';
+
 
 const Footer = () => {
   return (
@@ -124,7 +124,7 @@ const Footer = () => {
           </div>
           <div className="bg-[#f1f5f9]">
             <div className="flex items-center justify-center">
-              <img src={images}  alt="payment" className="w-48 h-6" />
+              {/* TODO BANNER */}
             </div>
           </div>
         </div>
