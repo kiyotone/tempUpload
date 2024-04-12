@@ -8,7 +8,9 @@ const router = require("./routes");
 const app = express();
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL,
+    origin: function (origin, callback) {
+      return callback(null, true);
+    },
     credentials: true,
   })
 );
@@ -18,7 +20,6 @@ app.use(cookieParser());
 app.use("/api", router);
 
 const PORT = process.env.PORT;
-
 
 connectDB().then(() => {
   app.listen(PORT, () => {

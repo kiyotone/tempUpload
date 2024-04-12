@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
-import pbClient from "@/lib/pbClient";
 import Image from "next/image";
 import user from "@/public/iconUser.png";
 import { IoIosLogOut } from "react-icons/io";
@@ -13,14 +12,8 @@ const Navbar = () => {
   const [userLoggedin, setUserLoggedIn] = useState(false);
 
   useEffect(() => {
-    setUserLoggedIn(pbClient.authStore.isValid);
-  }, [pbClient]);
-
-  function handleLogout() {
-    pbClient.authStore.clear();
-    setUserLoggedIn(false);
-    setModal(false);
-  }
+    console.log(":sdjad");
+  },[])
 
   return (
     <div
