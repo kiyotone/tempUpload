@@ -124,9 +124,9 @@ const Footer = () => {
             </form>
           </div>
           <div className="bg-[#f1f5f9]">
-            {/* <div className="flex items-center justify-center">
-              <img src={images}  alt="payment" className="w-48 h-6" />
-            </div> */}
+            <div className="flex items-center justify-center">
+              {/* TODO BANNER */}
+            </div>
           </div>
         </div>
       </div>
