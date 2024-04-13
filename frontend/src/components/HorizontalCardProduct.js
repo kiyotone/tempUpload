@@ -83,36 +83,37 @@ const HorizontalCardProduct = ({ category, heading }) => {
               return (
                 <Link
                   to={"product/" + product?._id}
-                  className="w-full h-[13rem] min-w-[380px] md:min-w-[390px] max-w-[280px] md:max-w-[320px] bg-white rounded-sm shadow flex"
+                  className="w-full h-[30rem] flex flex-col border rounded-sm shadow items-center"
                 >
-                  <div className="bg-slate-200 h-full p-4 w-[120px] md:w-[190px]">
+                  <div className="w-[20rem] min-h-[12rem]">
                     <img
                       src={product.productImage[0]}
                       className="object-cover h-full hover:scale-110 transition-all"
                       alt={product.productName}
                     />
                   </div>
-                  <div className="flex flex-col justify-between p-2">
-                    <div className="grid gap-1">
-                      <h2 className="capitalize font-medium text-[2rem] md:text-[2rem] text-ellipsis line-clamp-1 text-black">
-                        {product?.productName}
-                      </h2>
-                      <p className="capitalize text-sm text-slate-500">
-                        {product?.category}
-                      </p>
-                      <div className="flex gap-2">
-                        <p className="text-red-600 text-sm font-medium">
-                          {displayINRCurrency(product?.sellingPrice)}
+                  <div className="flex w-full flex-col justify-between px-14 pt-10">
+                    <div className="grid gap-y-10 ">
+                      <div>
+                        <h2 className="capitalize font-medium text-[2rem] md:text-[2rem] text-ellipsis line-clamp-1 text-black">
+                          {product?.productName}
+                        </h2>
+                        <p className="capitalize text-sm text-slate-500">
+                          {product?.category}
                         </p>
-                        <p className="text-slate-500 text-sm line-through">
-                          {displayINRCurrency(product?.price)}
-                        </p>
+                        <div className="flex gap-2">
+                          <p className="text-red-600 text-sm font-medium">
+                            {displayINRCurrency(product?.sellingPrice)}
+                          </p>
+                          <p className="text-slate-500 text-sm line-through">
+                            {displayINRCurrency(product?.price)}
+                          </p>
+                        </div>
                       </div>
                     </div>
-
-                    <div className="text-sm  w-full h-10 text-white py-0.5  relative">
+                    <div className="text-sm items-center flex flex-col pt-10 h-20 text-white w-full relative">
                       <button
-                        className="absolute inset-0 bg-red-600 hover:bg-red-700 rounded-sm transform skew-y-2"
+                        className=" w-[20rem] h-10 bg-red-600 hover:bg-red-700 rounded-sm transform skew-y-2"
                         onClick={(e) => handleAddToCart(e, product?._id)}
                       >
                         Add to Cart
