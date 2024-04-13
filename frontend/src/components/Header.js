@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 // import Logo from "../assest/products/logos.png";
 import { GrSearch } from "react-icons/gr";
@@ -22,6 +22,19 @@ const Header = () => {
   const URLSearch = new URLSearchParams(searchInput?.search);
   const searchQuery = URLSearch.getAll("q");
   const [search, setSearch] = useState(searchQuery);
+
+  const [below, setBelow] = useState(false);
+
+  if (typeof window !== "undefined") {
+    window.addEventListener("scroll", function () {
+      console.log(this.scrollY);
+      if (this.scrollY > 300) {
+        setBelow(true);
+      } else {
+        setBelow(false);
+      }
+    });
+  }
 
   const handleLogout = async () => {
     const fetchData = await fetch(SummaryApi.logout_user.url, {
@@ -53,32 +66,38 @@ const Header = () => {
     }
   };
   return (
-    <header className="h-16 shadow-md bg-white fixed w-full z-40">
-      <div className=" h-full container mx-auto flex items-center px-4 justify-between">
+    <header
+      className={`h-24 shadow-md w-full px-14 z-40 ${
+        below && searchInput.pathname == "/"
+          ? "  fixed bg-gray-400 "
+          : " bg-transparent absolute"
+      }`}
+    >
+      <div className=" h-full container mx-auto flex items-center pl-2 justify-between">
         <div className="">
           <Link to={"/"}>
             <div>2 wheeler</div>
           </Link>
         </div>
 
-        <div className="hidden lg:flex items-center w-full justify-between max-w-sm border rounded-full focus-within:shadow pl-2">
+        <div className="hidden lg:flex items-center h-14  border rounded-2xl focus-within:shadow pl-2">
           <input
             type="text"
             placeholder="Get Your Products here..."
-            className="w-full outline-none"
+            className="w-[19rem] outline-none bg-transparent placeholder:text-white text-black"
             onChange={handleSearch}
             value={search}
           />
-          <div className="text-lg min-w-[50px] h-8 bg-red-600 flex items-center justify-center rounded-r-full text-white">
+          <div className="text-lg min-w-[50px] h-8 flex items-center justify-center rounded-r-full text-white">
             <GrSearch />
           </div>
         </div>
 
-        <div className="flex items-center gap-7">
+        <div className="flex items-center text-white gap-7">
           <div className="relative flex justify-center">
             {user?._id && (
               <div
-                className="text-3xl cursor-pointer relative flex justify-center"
+                className="text-3xl  cursor-pointer relative flex justify-center"
                 onClick={() => setMenuDisplay((preve) => !preve)}
               >
                 {user?.profilePic ? (
@@ -111,7 +130,7 @@ const Header = () => {
           </div>
 
           {user?._id && (
-            <Link to={"/cart"} className="text-2xl relative">
+            <Link to={"/cart"} className="text-2xl text-white relative">
               <span>
                 <FaShoppingCart />
               </span>

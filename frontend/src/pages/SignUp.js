@@ -72,7 +72,7 @@ const SignUp = () => {
   };
 
   return (
-    <section id="signup" className="flex">
+    <section id="signup" className="flex items-center h-screen">
       <div className="w-[60rem] h-full">{/* IMAGE */}</div>
       <div className="mx-auto w-[30rem] p-4">
         <div className="bg-white p-5 w-full ">

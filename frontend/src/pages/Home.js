@@ -7,8 +7,8 @@ import VerticalCardProduct from '../components/VerticalCardProduct'
 const Home = () => {
   return (
     <div className='flex flex-col'>
-      <CategoryList/>
       <BannerProduct/>
+      <CategoryList/>
 
       <HorizontalCardProduct category={"Off-Road"} heading={"Off-Road"}/>
       <HorizontalCardProduct category={"Others"} heading={"Others"}/>
