@@ -61,7 +61,7 @@ function App() {
           <Header />
         )}
 
-        <main className="min-h-[calc(100vh-120px)]">
+        <main className={`min-h-[calc(100vh-120px)] ${location.pathname != "/" && "pt-[6rem]"}`}>
           <Outlet />
         </main>
       </Context.Provider>
