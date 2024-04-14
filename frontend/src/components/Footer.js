@@ -6,23 +6,25 @@ import { FaTwitter } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
+import { RiMotorbikeFill } from "react-icons/ri";
 
 const Footer = () => {
   return (
-    <div>
-      <div className="bg-[#f1f5f9] h-[38rem] w-full flex flex-col mini:flex-row mini:h-[18.9rem]">
-        <div className="h-[12 rem] w-full  mini:w-[26rem]">
-          <h1 className="flex items-center justify-center pt-8 font-logo2 text-4xl">
+    <div className="bg-white">
+      <div className=" h-[38rem] w-full flex flex-col mini:flex-row mini:h-[18.9rem]">
+        <div className="h-[12 rem] w-full  mini:w-[26rem] flex flex-col items-center justify-center">
+          <RiMotorbikeFill className="text-black h-10 w-10" />
+          <h1 className="flex items-center justify-center font-logo2 text-4xl">
             TWO WHEELER
           </h1>
           <div className="mt-3 mini:h-[14 rem] w-full h-[6rem] mini:w-[25rem] mini:gap-x-6  ">
-            <h1 className="font-serif text-center mini:h-24">
+            <h1 className="font-serif text-center mini:h-24 text-[12px] italic">
               "Revolutionize your ride with our top-tier selection of bike parts
               and accessories. From the latest in performance technology to
               must-have maintenance essentials, we've got everything you need to
               elevate your cycling experience."
             </h1>
-            <div className="flex flex-row justify-center items-center mt-12">
+            <div className="flex flex-row justify-center items-center">
               <div className="flex items-center justify-center space-x-4">
                 <a
                   href="/home"
@@ -52,7 +54,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="h-full w-full mini:w-[43%] bg-[#f1f5f9] flex  flex-row mini:flex-col items-center justify-center  ">
+        <div className="h-full w-full mini:w-[43%]  flex  flex-row mini:flex-col items-center justify-center  ">
           <div className=" mini:w-[rem] mini:h-full w-full     ">
             <h2 className="text-3xl font-boldFont mb-4  flex justify-center mt-6">
               Contact Information
@@ -101,7 +103,7 @@ const Footer = () => {
         </div>
 
         <div className="h-[17rem] md:w-[30%] pt-86 mini:pt-0 ">
-          <div className="bg-[#f1f5f9] p-8">
+          <div className=" p-8">
             <h2 className="text-2xl font-boldFont mb-4 flex justify-center items-center">
               {" "}
               Newsletter
@@ -130,7 +132,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <footer className="text-center text-gray-500  h-12 w-full  bg-[#eef0e5] relative mini:absolute flex justify-center items-center  mini:mt-0">
+      <footer className="text-center p-4 text-gray-500 text-[12px] h-[10px] w-full  bg-[#f1f5f9] relative mini:absolute flex justify-center items-center  mini:mt-0">
         <p className=" text-black">
           &copy; 2024 TWO WHEELER All Right Reserved
         </p>

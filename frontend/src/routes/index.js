@@ -11,23 +11,6 @@ import CategoryProduct from "../pages/CategoryProduct";
 import ProductDetails from "../pages/ProductDetails";
 import Cart from "../pages/Cart";
 import SearchProduct from "../pages/SearchProduct";
-import Footer from "../components/Footer";
-import Header from "../components/Header";
-
-const Layout = ({ children, protectedRoute = false }) => {
-  // Check if the current route is login or signup
-
-  return (
-    <div>
-      {/* Render navigation only if the route is not login or signup */}
-      {!protectedRoute && <Header />}
-      {/* Render children (page content) */}
-      {children}
-      {/* Render footer only if the route is not login or signup */}
-      {!protectedRoute && <Footer />}
-    </div>
-  );
-};
 
 const router = createBrowserRouter([
   {
