@@ -4,6 +4,7 @@ const addToCartController = async(req,res)=>{
     try{
         const { productId } = req?.body
         const currentUser = req.userId
+        const quantity = req?.body?.quantity || 1
 
         const isProductAvailable = await addToCartModel.findOne({ productId })
 
@@ -19,7 +20,7 @@ const addToCartController = async(req,res)=>{
 
         const payload  = {
             productId : productId,
-            quantity : 1,
+            quantity : quantity,
             userId : currentUser,
         }
 
