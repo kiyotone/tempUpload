@@ -97,7 +97,7 @@ const Header = () => {
 
       <header
         className={`h-20  w-full px-14 z-40 ${
-          below && searchInput.pathname == "/"
+          below || searchInput.pathname != "/"
             ? "  fixed bg-black "
             : " bg-transparent absolute"
         }`}
