@@ -76,7 +76,7 @@ const Header = () => {
     <div className="relative">
       <div
         className={`${
-          !searchDisplay ? "absolute translate-y-[-100px]" : "translate-y-0"
+          !searchDisplay || below ? "absolute translate-y-[-100px]" : "translate-y-0"
         }  w-100vw  ease-in-out duration-300`}
       >
         <div

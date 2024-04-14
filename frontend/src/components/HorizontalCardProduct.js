@@ -101,6 +101,10 @@ const HorizontalCardProduct = ({ category, heading }) => {
                         <p className="capitalize text-sm text-slate-500">
                           {product?.category}
                         </p>
+                        <p className="capitalize text-sm text-slate-500">
+                          In Stock: {product?.quantity 
+                          }
+                        </p>
                         <div className="flex gap-2">
                           <p className="text-red-600 text-sm font-medium">
                             {displayINRCurrency(product?.sellingPrice)}
