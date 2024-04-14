@@ -64,6 +64,9 @@ function App() {
         <main className="min-h-[calc(100vh-120px)]">
           <Outlet />
         </main>
+        {location.pathname != "/login" && location.pathname != "/sign-up" && (
+          <Footer />
+        )}
       </Context.Provider>
     </>
   );
