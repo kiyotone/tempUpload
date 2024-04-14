@@ -37,8 +37,8 @@ const Cart = () => {
     setLoading(false);
   }, []);
 
-  const increaseQty = async (id, stock ,qty) => {
-    console.log(stock,qty)
+  const increaseQty = async (id, stock, qty) => {
+    console.log(stock, qty);
     if (stock <= qty) {
       toast.error("Max Stock Reached");
       return;
@@ -179,7 +179,11 @@ const Cart = () => {
                           <button
                             className="border border-red-600 text-red-600 hover:bg-red-600 hover:text-white w-6 h-6 flex justify-center items-center rounded=2xl"
                             onClick={() =>
-                              increaseQty(product?._id,product?.productId?.quantity, product?.quantity)
+                              increaseQty(
+                                product?._id,
+                                product?.productId?.quantity,
+                                product?.quantity
+                              )
                             }
                           >
                             +
