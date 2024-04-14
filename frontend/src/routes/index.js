@@ -36,19 +36,11 @@ const router = createBrowserRouter([
     children: [
       {
         path: "",
-        element: (
-          <Layout>
-            <Home />
-          </Layout>
-        ),
+        element: <Home />,
       },
       {
         path: "login",
-        element: (
-          <Layout protectedRoute={true}>
-            <Login />
-          </Layout>
-        ),
+        element: <Login />,
       },
       {
         path: "forgot-password",
@@ -56,11 +48,7 @@ const router = createBrowserRouter([
       },
       {
         path: "sign-up",
-        element: (
-          <Layout protectedRoute={true}>
-            <SignUp />
-          </Layout>
-        ),
+        element: <SignUp />,
       },
       {
         path: "product-category",

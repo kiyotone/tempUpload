@@ -72,12 +72,13 @@ const SignUp = () => {
   };
 
   return (
-    <section id="signup">
-      <div className="mx-auto container p-4">
-        <div className="bg-white p-5 w-full max-w-sm mx-auto">
+    <section id="signup" className="flex items-center h-screen">
+      <div className="w-[60rem] h-full">{/* IMAGE */}</div>
+      <div className="mx-auto w-[30rem] p-4">
+        <div className="bg-white p-5 w-full ">
           <div className="w-20 h-20 mx-auto relative overflow-hidden rounded-full">
             <div>
-              <img src={data.profilePic|| loginIcons} alt="login icons" />
+              <img src={data.profilePic || loginIcons} alt="login icons" />
             </div>
             <form>
               <label>
@@ -94,77 +95,105 @@ const SignUp = () => {
           </div>
 
           <form className="pt-6 flex flex-col gap-2" onSubmit={handleSubmit}>
-            <div className="grid">
-              <label>Name : </label>
-              <div className="bg-slate-100 p-2">
-                <input
-                  type="text"
-                  placeholder="enter your name"
-                  name="name"
-                  value={data.name}
-                  onChange={handleOnChange}
-                  required
-                  className="w-full h-full outline-none bg-transparent"
-                />
-              </div>
+            <div className="relative mt-[2rem]">
+              <input
+                type="text"
+                placeholder=" "
+                name="name"
+                value={data.name}
+                onChange={handleOnChange}
+                required
+                className={`w-[25rem] h-[3rem] pl-[2.28rem] bg-gray-50 peer border-black placeholder-shown:border-gray-200 border rounded-full "
+                }`}
+              ></input>
+              <label
+                htmlFor="name"
+                className="absolute bg-white top-[-.77rem] scale-[85%] text-black left-[2.28rem] peer-placeholder-shown:top-[.82rem] cursor-text ease-in-out duration-100 
+                peer-focus:text-black peer-placeholder-shown:text-gray-400 peer-placeholder-shown:scale-[100%]
+                peer-focus:top-[-.77rem] peer-focus:bg-white peer-focus:scale-[85%]
+              "
+              >
+                FULL NAME
+              </label>
             </div>
-            <div className="grid">
-              <label>Email : </label>
-              <div className="bg-slate-100 p-2">
-                <input
-                  type="email"
-                  placeholder="enter email"
-                  name="email"
-                  value={data.email}
-                  onChange={handleOnChange}
-                  required
-                  className="w-full h-full outline-none bg-transparent"
-                />
+
+            <div className="relative mt-[2rem]">
+              <input
+                type="email"
+                placeholder=" "
+                name="email"
+                value={data.email}
+                onChange={handleOnChange}
+                required
+                className={`w-[25rem] h-[3rem] pl-[2.28rem] bg-gray-50 peer border-black placeholder-shown:border-gray-200 border rounded-full "
+                }`}
+              ></input>
+              <label
+                htmlFor="email"
+                className="absolute bg-white top-[-.77rem] scale-[85%] text-black left-[2.28rem] peer-placeholder-shown:top-[.82rem] cursor-text ease-in-out duration-100 
+                peer-focus:text-black peer-placeholder-shown:text-gray-400 peer-placeholder-shown:scale-[100%]
+                peer-focus:top-[-.77rem] peer-focus:bg-whites peer-focus:scale-[85%]
+              "
+              >
+                EMAIL
+              </label>
+            </div>
+
+            <div className="relative mt-[2rem]">
+              <input
+                type={`${showPassword ? "text" : "password"}`}
+                placeholder=" "
+                value={data.password}
+                onChange={handleOnChange}
+                name="password"
+                id="password"
+                className={`w-[25rem] h-[3rem] pl-[2.28rem] bg-gray-50 peer border-black placeholder-shown:border-gray-200 border rounded-full "
+                }`}
+              ></input>
+              <label
+                htmlFor="password"
+                className="absolute bg-white top-[-.77rem] scale-[85%] text-black left-[2.28rem] peer-placeholder-shown:top-[.82rem] cursor-text ease-in-out duration-100 
+                peer-focus:text-black peer-placeholder-shown:text-gray-400 peer-placeholder-shown:scale-[100%]
+                peer-focus:top-[-.77rem] peer-focus:bg-white peer-focus:scale-[85%]
+              "
+              >
+                PASSWORD
+              </label>
+
+              <div
+                className="cursor-pointer absolute right-6 text-gray-400 top-4 text-xl"
+                onClick={() => setShowPassword((preve) => !preve)}
+              >
+                <span>{showPassword ? <FaEyeSlash /> : <FaEye />}</span>
               </div>
             </div>
 
-            <div>
-              <label>Password : </label>
-              <div className="bg-slate-100 p-2 flex">
-                <input
-                  type={showPassword ? "text" : "password"}
-                  placeholder="enter password"
-                  value={data.password}
-                  name="password"
-                  onChange={handleOnChange}
-                  required
-                  className="w-full h-full outline-none bg-transparent"
-                />
-                <div
-                  className="cursor-pointer text-xl"
-                  onClick={() => setShowPassword((preve) => !preve)}
-                >
-                  <span>{showPassword ? <FaEyeSlash /> : <FaEye />}</span>
-                </div>
-              </div>
-            </div>
+            <div className="relative mt-[2rem]">
+              <input
+                type={`${showConfirmPassword ? "text" : "password"}`}
+                placeholder=" "
+                value={data.confirmPassword}
+                onChange={handleOnChange}
+                name="confirmPassword"
+                id="confirmPassword"
+                className={`w-[25rem] h-[3rem] pl-[2.28rem] bg-gray-50 peer border-black placeholder-shown:border-gray-200 border rounded-full "
+                }`}
+              ></input>
+              <label
+                htmlFor="confirmPassword"
+                className="absolute bg-white top-[-.77rem] scale-[85%] text-black left-[2.28rem] peer-placeholder-shown:top-[.82rem] cursor-text ease-in-out duration-100 
+                peer-focus:text-black peer-placeholder-shown:text-gray-400 peer-placeholder-shown:scale-[100%]
+                peer-focus:top-[-.77rem] peer-focus:bg-white peer-focus:scale-[85%]
+              "
+              >
+                CONFIRM PASSWORD
+              </label>
 
-            <div>
-              <label>Confirm Password : </label>
-              <div className="bg-slate-100 p-2 flex">
-                <input
-                  type={showConfirmPassword ? "text" : "password"}
-                  placeholder="enter confirm password"
-                  value={data.confirmPassword}
-                  name="confirmPassword"
-                  onChange={handleOnChange}
-                  required
-                  className="w-full h-full outline-none bg-transparent"
-                />
-
-                <div
-                  className="cursor-pointer text-xl"
-                  onClick={() => setShowConfirmPassword((preve) => !preve)}
-                >
-                  <span>
-                    {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
-                  </span>
-                </div>
+              <div
+                className="cursor-pointer absolute right-6 text-gray-400 top-4 text-xl"
+                onClick={() => setShowConfirmPassword((preve) => !preve)}
+              >
+                <span>{showConfirmPassword ? <FaEyeSlash /> : <FaEye />}</span>
               </div>
             </div>
 
@@ -173,7 +202,7 @@ const SignUp = () => {
             </button>
           </form>
 
-          <p className="my-5">
+          <p className="my-5 pl-8 text-gray-400">
             Already have account ?{" "}
             <Link
               to={"/login"}

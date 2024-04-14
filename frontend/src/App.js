@@ -10,10 +10,12 @@ import SummaryApi from "./common";
 import Context from "./context";
 import { useDispatch } from "react-redux";
 import { setUserDetails } from "./store/userSlice";
+import { useLocation } from "react-router-dom";
 
 function App() {
   const dispatch = useDispatch();
   const [cartProductCount, setCartProductCount] = useState(0);
+  const location = useLocation();
 
   const fetchUserDetails = async () => {
     const dataResponse = await fetch(SummaryApi.current_user.url, {
@@ -55,8 +57,11 @@ function App() {
         }}
       >
         <ToastContainer position="top-center" />
+        {location.pathname != "/login" && location.pathname != "/sign-up" && (
+          <Header />
+        )}
 
-        <main className="min-h-[calc(100vh-120px)] pt-16">
+        <main className="min-h-[calc(100vh-120px)]">
           <Outlet />
         </main>
       </Context.Provider>
