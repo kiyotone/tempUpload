@@ -102,8 +102,7 @@ const HorizontalCardProduct = ({ category, heading }) => {
                           {product?.category}
                         </p>
                         <p className="capitalize text-sm text-slate-500">
-                          In Stock: {product?.quantity 
-                          }
+                          In Stock: {product?.quantity }
                         </p>
                         <div className="flex gap-2">
                           <p className="text-red-600 text-sm font-medium">
