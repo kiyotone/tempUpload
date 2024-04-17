@@ -42,11 +42,11 @@ const HorizontalCardProduct = ({ category, heading }) => {
   };
 
   return (
-    <div className="container mx-auto px-4 my-6 relative">
-      <h2 className="text-2xl font-semibold py-4">{heading}</h2>
+    <div className="container mx-auto px-4 pt-[60px] relative">
+      <h2 className="text-4xl font-semibold mb-10 text-center">{heading}</h2>
 
       <div
-        className="flex items-center gap-4 md:gap-6 overflow-scroll scrollbar-none transition-all"
+        className="flex items-center py-10  gap-4 md:gap-6 overflow-scroll scrollbar-none transition-all"
         ref={scrollElement}
       >
         <button
@@ -83,41 +83,41 @@ const HorizontalCardProduct = ({ category, heading }) => {
               return (
                 <Link
                   to={"product/" + product?._id}
-                  className="w-full h-[30rem] flex flex-col border rounded-sm shadow items-center"
+                  className="w-full h-[38rem] flex flex-col  rounded-sm  items-center horizontalCard"
                 >
-                  <div className="w-[20rem] min-h-[12rem]">
+                  <div className="w-[30rem] min-h-[25rem]">
                     <img
                       src={product.productImage[0]}
-                      className="object-cover h-full hover:scale-110 transition-all"
+                      className="object-cover h-full transition-all"
                       alt={product.productName}
                     />
                   </div>
-                  <div className="flex w-full flex-col justify-between px-14 pt-10">
-                    <div className="grid gap-y-10 ">
-                      <div>
-                        <h2 className="capitalize font-medium text-[2rem] md:text-[2rem] text-ellipsis line-clamp-1 text-black">
+                  <div className="flex w-full flex-col justify-between px-14 pt-10 items-center">
+                    <div className="grid gap-y-5 ">
+                      <div className="flex justify-center items-center gap-5 ">
+                        <h2 className="capitalize font-medium text-[2rem] md:text-[2rem] text-ellipsis line-clamp-1 text-black horizontalCard-text">
                           {product?.productName}
                         </h2>
                         <p className="capitalize text-sm text-slate-500">
                           {product?.category}
                         </p>
-                        <div className="flex gap-2">
-                          <p className="text-red-600 text-sm font-medium">
-                            {displayINRCurrency(product?.sellingPrice)}
-                          </p>
-                          <p className="text-slate-500 text-sm line-through">
-                            {displayINRCurrency(product?.price)}
-                          </p>
-                        </div>
+                      </div>
+                      <div className="flex gap-2">
+                        <p className="text-red-600 text-sm font-medium">
+                          {displayINRCurrency(product?.sellingPrice)}
+                        </p>
+                        <p className="text-slate-500 text-sm line-through">
+                          {displayINRCurrency(product?.price)}
+                        </p>
                       </div>
                     </div>
                     <div className="text-sm items-center flex flex-col pt-10 h-20 text-white w-full relative">
-                      <button
+                      {/* <button
                         className=" w-[20rem] h-10 bg-red-600 hover:bg-red-700 rounded-sm transform skew-y-2"
                         onClick={(e) => handleAddToCart(e, product?._id)}
                       >
                         Add to Cart
-                      </button>
+                      </button> */}
                     </div>
                   </div>
                 </Link>

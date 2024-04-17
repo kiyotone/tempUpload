@@ -11,9 +11,27 @@ body {
   -moz-osx-font-smoothing: grayscale;
   @apply bg-slate-100
 
+
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.card:hover p{
+  background: #f1bb47;
+  
+  transform: scale(1.05) skew(-12deg);
+  transition-duration: 300ms;
+  animation: ease-in-out all 3s;
+  font-weight: bold;
+}
+
+.horizontalCard:hover img{
+  @apply scale-105;
+}
+
+.horizontalCard:hover .horizontalCard-text{
+  color: #f1bb47;
 }
