@@ -94,21 +94,26 @@ const HorizontalCardProduct = ({ category, heading }) => {
                   </div>
                   <div className="flex w-full flex-col justify-between px-14 pt-10 items-center">
                     <div className="grid gap-y-5 ">
-                      <div className="flex justify-center items-center gap-5 ">
+                      <div className="flex flex-col justify-center items-center gap-5 ">
                         <h2 className="capitalize font-medium text-[2rem] md:text-[2rem] text-ellipsis line-clamp-1 text-black horizontalCard-text">
                           {product?.productName}
                         </h2>
-                        <p className="capitalize text-sm text-slate-500">
-                          {product?.category}
-                        </p>
-                      </div>
-                      <div className="flex gap-2">
-                        <p className="text-red-600 text-sm font-medium">
-                          {displayINRCurrency(product?.sellingPrice)}
-                        </p>
-                        <p className="text-slate-500 text-sm line-through">
-                          {displayINRCurrency(product?.price)}
-                        </p>
+                        <div className="flex gap-5 justify-center items-center">
+                          <p className="capitalize text-sm text-[#51ce89]">
+                            {product?.category}
+                          </p>
+                          <p className="capitalize text-sm text-slate-500">
+                            In Stock: {product?.quantity}
+                          </p>
+                        </div>
+                        <div className="flex gap-2">
+                          <p className="text-red-600 text-sm font-medium">
+                            {displayINRCurrency(product?.sellingPrice)}
+                          </p>
+                          <p className="text-slate-500 text-sm line-through">
+                            {displayINRCurrency(product?.price)}
+                          </p>
+                        </div>
                       </div>
                     </div>
                     <div className="text-sm items-center flex flex-col pt-10 h-20 text-white w-full relative">

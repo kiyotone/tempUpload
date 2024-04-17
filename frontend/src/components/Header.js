@@ -76,7 +76,7 @@ const Header = () => {
     <div className="relative">
       <div
         className={`${
-          !searchDisplay ? "absolute translate-y-[-100px]" : "translate-y-0"
+          !searchDisplay || below ? "absolute translate-y-[-100px]" : "translate-y-0"
         }  w-100vw  ease-in-out duration-300`}
       >
         <div
@@ -138,12 +138,12 @@ const Header = () => {
                 )}
 
                 {menuDisplay && (
-                  <div className="absolute bg-white bottom-0 top-11 h-fit p-2 shadow-lg rounded">
+                  <div className="absolute bg-white text-black bottom-0 top-11 h-fit p-2 shadow-lg rounded">
                     <nav>
                       {user?.role === ROLE.ADMIN && (
                         <Link
                           to={"/admin-panel/all-products"}
-                          className="whitespace-nowrap hidden md:block hover:bg-slate-100 p-2"
+                          className="whitespace-nowrap hidden md:block hover:bg-slate-300 p-2"
                           onClick={() => setMenuDisplay((preve) => !preve)}
                         >
                           Admin Panel

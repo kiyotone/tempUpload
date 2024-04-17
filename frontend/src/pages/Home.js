@@ -12,10 +12,9 @@ const Home = () => {
 
       <HorizontalCardProduct category={"Off-Road"} heading={"Off-Road"}/>
       <HorizontalCardProduct category={"Others"} heading={"Others"}/>
-
-      <VerticalCardProduct category={"Pants"} heading={"Pants"}/>
-      <VerticalCardProduct category={"Tank-Bags"} heading={"Tank Bags"}/>
-      <VerticalCardProduct category={"Boots"} heading={"Boots"}/>
+      <HorizontalCardProduct category={"Pants"} heading={"Pants"}/>
+      <HorizontalCardProduct category={"Tank-Bags"} heading={"Tank Bags"}/>
+      <HorizontalCardProduct category={"Boots"} heading={"Boots"}/>
    
     </div>
   )

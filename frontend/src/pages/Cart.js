@@ -3,6 +3,7 @@ import SummaryApi from "../common";
 import Context from "../context";
 import displayINRCurrency from "../helpers/displayCurrency";
 import { MdDelete } from "react-icons/md";
+import { toast } from "react-toastify";
 
 const Cart = () => {
   const [data, setData] = useState([]);
@@ -36,7 +37,13 @@ const Cart = () => {
     setLoading(false);
   }, []);
 
-  const increaseQty = async (id, qty) => {
+  const increaseQty = async (id, stock, qty) => {
+    console.log(stock, qty);
+    if (stock <= qty) {
+      toast.error("Max Stock Reached");
+      return;
+    }
+
     const response = await fetch(SummaryApi.updateCartProduct.url, {
       method: SummaryApi.updateCartProduct.method,
       credentials: "include",
@@ -120,7 +127,7 @@ const Cart = () => {
             SHOPPING CART
           </div>
 
-          <div className="border pb-10 gap-y-10 pt-10 flex flex-col items-center border-slate-600">
+          <div className="border pb-10 gap-y-10 pt-10 flex flex-col items-start border-slate-600">
             {loading
               ? loadingCart?.map((el, index) => {
                   return (
@@ -134,17 +141,17 @@ const Cart = () => {
                   return (
                     <div
                       key={product?._id + "Add To Cart Loading"}
-                      className="w-full  px-6  rounded flex items-center gap-x-32"
+                      className="w-full  px-6  rounded flex items-center16"
                     >
-                      <div className="w-32 h-32 bg-slate-200">
+                      <div className="w-44 h-w-44 bg-slate-200">
                         <img
                           src={product?.productId?.productImage[0]}
                           className="w-full h-full object-scale-down mix-blend-multiply"
                         />
                       </div>
 
-                      <div className="w-32 h-32">
-                        <h2 className="text-lg lg:text-xl text-ellipsis line-clamp-1">
+                      <div className="w-48 h-32 ml-20 ">
+                        <h2 className="text-3xl font-serif font-semibold text-ellipsis line-clamp-1">
                           {product?.productId?.productName}
                         </h2>
                         <p className="capitalize text-slate-500">
@@ -157,7 +164,7 @@ const Cart = () => {
                             )}
                           </p>
                         </div>
-                        <div className="flex items-center gap-3 mt-1 w-28 shadow-md p-2 pl-4">
+                        <div className="flex items-center  mt-1 w-32 shadow-md p-2 pl-4">
                           <button
                             className="border border-red-600 text-red-600 hover:bg-red-600 hover:text-white w-6 h-6 flex justify-center items-center rounded=2xl"
                             onClick={() =>
@@ -166,11 +173,17 @@ const Cart = () => {
                           >
                             -
                           </button>
-                          <span>{product?.quantity}</span>
+                          <div className="w-16 items-center flex flex-col">
+                            {product?.quantity}
+                          </div>
                           <button
                             className="border border-red-600 text-red-600 hover:bg-red-600 hover:text-white w-6 h-6 flex justify-center items-center rounded=2xl"
                             onClick={() =>
-                              increaseQty(product?._id, product?.quantity)
+                              increaseQty(
+                                product?._id,
+                                product?.productId?.quantity,
+                                product?.quantity
+                              )
                             }
                           >
                             +
@@ -178,7 +191,12 @@ const Cart = () => {
                         </div>
                       </div>
 
-                      <div className="pl-28 w-52 h-32 py-2 flex items-center flex-col ">
+                      <div className=" w-[10rem] flex text-xl h-32 py-2 items-center flex-col ">
+                        <p className="text-red-600 font-semibold">STOCK</p>
+                        <p className=" ">{product?.productId?.quantity}</p>
+                      </div>
+
+                      <div className=" w-[10rem] h-32 py-2 flex items-center flex-col ">
                         {/**delete product */}
                         <div
                           className=" text-red-600 rounded-md p-2 border border-transparent hover:border-red-600 cursor-pointer"
