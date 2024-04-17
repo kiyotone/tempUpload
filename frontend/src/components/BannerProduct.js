@@ -67,10 +67,10 @@ const BannerProduct = () => {
         <SwiperSlide>
           <div className="bg-back-4 bg-center bg-cover bg-no-repeat h-full w-full"></div>
           <div className="mt-[-20rem] text-left pl-9">
-            <h1 className="px-4  mini:text-7xl mobile:text-5xl text-xl font-bold text-[#4f79b3]">
+            <h1 className="px-4  mini:text-7xl mobile:text-5xl text-xl font-bold text-[#F3F8FF]">
               TWO WHEELER <span className="text-[#3a3f9e]"> </span>
             </h1>
-            <h1 className="px-4  mini:text-7xl mobile:text-5xl text-xl font-bold text-[#3b66a2]">
+            <h1 className="px-4  mini:text-7xl mobile:text-5xl text-xl font-bold text-[#ffd14b]">
               Shop<span className="text-[#29754b]"> </span>
             </h1>
             <button className=" mini:w-52  ml-7 mt-5 bg-[#f25c48] hover:bg-black hover:text-white text-[#13070f] text-[12px] py-2 px-4 transition-all duration-300 ease-in-out  mini:text-4xl mobile:text-3xl mobile:w-40 w-[6rem]">

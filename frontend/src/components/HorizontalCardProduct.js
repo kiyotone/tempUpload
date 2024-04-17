@@ -42,11 +42,11 @@ const HorizontalCardProduct = ({ category, heading }) => {
   };
 
   return (
-    <div className="container w-[100%] px-3 my-6 relative">
-      <h2 className="text-2xl font-semibold py-4">{heading}</h2>
+    <div className="container mx-auto px-4 pt-[60px] relative">
+      <h2 className="text-4xl font-semibold mb-10 text-center">{heading}</h2>
 
       <div
-        className="flex items-center gap-4 md:gap-6 overflow-scroll scrollbar-none transition-all"
+        className="flex items-center py-10  gap-4 md:gap-6 overflow-scroll scrollbar-none transition-all"
         ref={scrollElement}
       >
         <button
@@ -83,12 +83,12 @@ const HorizontalCardProduct = ({ category, heading }) => {
               return (
                 <Link
                   to={"product/" + product?._id}
-                  className="w-[25rem] h-[30rem] flex flex-col items-center"
+                  className="w-full h-[38rem] flex flex-col  rounded-sm  items-center horizontalCard"
                 >
-                  <div className="w-[20rem] min-h-[12rem] items-center">
+                  <div className="w-[30rem] min-h-[25rem]">
                     <img
                       src={product.productImage[0]}
-                      className="object-cover h-full hover:scale-110 transition-all"
+                      className="object-cover h-full transition-all"
                       alt={product.productName}
                     />
                   </div>
@@ -98,12 +98,14 @@ const HorizontalCardProduct = ({ category, heading }) => {
                         <h2 className="capitalize font-medium text-[2rem] md:text-[2rem] text-ellipsis line-clamp-1 text-black">
                           {product?.productName}
                         </h2>
-                        <p className="capitalize text-sm text-slate-500">
-                          {product?.category}
-                        </p>
-                        <p className="capitalize text-sm text-slate-500">
-                          In Stock: {product?.quantity }
-                        </p>
+                        <div className="flex gap-5 justify-center items-center">
+                          <p className="capitalize text-sm text-[#51ce89]">
+                            {product?.category}
+                          </p>
+                          <p className="capitalize text-sm text-slate-500">
+                            In Stock: {product?.quantity}
+                          </p>
+                        </div>
                         <div className="flex gap-2">
                           <p className="text-red-600 text-sm font-medium">
                             {displayINRCurrency(product?.sellingPrice)}
@@ -115,12 +117,12 @@ const HorizontalCardProduct = ({ category, heading }) => {
                       </div>
                     </div>
                     <div className="text-sm items-center flex flex-col pt-10 h-20 text-white w-full relative">
-                      <button
-                        className=" w-[10rem] h-10 bg-red-600 hover:bg-red-700 rounded-sm transform skew-y-2"
+                      {/* <button
+                        className=" w-[20rem] h-10 bg-red-600 hover:bg-red-700 rounded-sm transform skew-y-2"
                         onClick={(e) => handleAddToCart(e, product?._id)}
                       >
                         Add to Cart
-                      </button>
+                      </button> */}
                     </div>
                   </div>
                 </Link>

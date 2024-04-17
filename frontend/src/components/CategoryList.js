@@ -21,8 +21,8 @@ const CategoryList = () => {
   }, []);
 
   return (
-    <div className="container mx-auto p-4 my-14">
-      <div className="flex items-center gap-4 justify-between overflow-scroll scrollbar-none">
+    <div className="container mx-auto mt-1 mb-[48px]">
+      <div className="grid grid-cols-3 items-center justify-between overflow-scroll scrollbar-none gap-1">
         {loading
           ? categoryLoading.map((el, index) => {
               return (
@@ -36,19 +36,21 @@ const CategoryList = () => {
               return (
                 <Link
                   to={"/product-category?category=" + product?.category}
-                  className="cursor-pointer"
+                  className="cursor-pointer flex flex-col justify-center items-center overflow-hidden  ease-in delay-100"
                   key={product?.category}
                 >
-                  <div className="w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden p-4 bg-slate-200 flex items-center justify-center">
-                    <img
-                      src={product?.productImage[0]}
-                      alt={product?.category}
-                      className="h-full object-scale-down mix-blend-multiply hover:scale-125 transition-all"
-                    />
+                  <div
+                    style={{
+                      backgroundImage: `url(${product?.productImage[0]})`,
+                    }}
+                    className="w-full hover:scale-[1.02] card h-[300px] bg-no-repeat bg-cover bg-center p-4 bg-slate-200 flex items-center justify-center"
+                  >
+                    <p
+                      className={`text-center text-lg font-bold text-black md:text-base uppercase p-2 rounded-md -skew-x-12 bg-white `}
+                    >
+                      {product?.category}
+                    </p>
                   </div>
-                  <p className="text-center text-sm md:text-base capitalize">
-                    {product?.category}
-                  </p>
                 </Link>
               );
             })}
