@@ -42,7 +42,7 @@ const HorizontalCardProduct = ({ category, heading }) => {
   };
 
   return (
-    <div className="container mx-auto px-4 my-6 relative">
+    <div className="container w-[100%] px-3 my-6 relative">
       <h2 className="text-2xl font-semibold py-4">{heading}</h2>
 
       <div
@@ -83,18 +83,18 @@ const HorizontalCardProduct = ({ category, heading }) => {
               return (
                 <Link
                   to={"product/" + product?._id}
-                  className="w-full h-[30rem] flex flex-col border rounded-sm shadow items-center"
+                  className="w-[25rem] h-[30rem] flex flex-col items-center"
                 >
-                  <div className="w-[20rem] min-h-[12rem]">
+                  <div className="w-[20rem] min-h-[12rem] items-center">
                     <img
                       src={product.productImage[0]}
                       className="object-cover h-full hover:scale-110 transition-all"
                       alt={product.productName}
                     />
                   </div>
-                  <div className="flex w-full flex-col justify-between px-14 pt-10">
+                  <div className="flex w-full flex-col items-center justify-between px-14 pt-2">
                     <div className="grid gap-y-10 ">
-                      <div>
+                      <div className="items-center flex flex-col">
                         <h2 className="capitalize font-medium text-[2rem] md:text-[2rem] text-ellipsis line-clamp-1 text-black">
                           {product?.productName}
                         </h2>
@@ -116,7 +116,7 @@ const HorizontalCardProduct = ({ category, heading }) => {
                     </div>
                     <div className="text-sm items-center flex flex-col pt-10 h-20 text-white w-full relative">
                       <button
-                        className=" w-[20rem] h-10 bg-red-600 hover:bg-red-700 rounded-sm transform skew-y-2"
+                        className=" w-[10rem] h-10 bg-red-600 hover:bg-red-700 rounded-sm transform skew-y-2"
                         onClick={(e) => handleAddToCart(e, product?._id)}
                       >
                         Add to Cart
