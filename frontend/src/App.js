@@ -61,7 +61,11 @@ function App() {
           <Header />
         )}
 
-        <main className={`min-h-[calc(100vh-120px)] ${location.pathname != "/" && "pt-[6rem]"}`}>
+        <main
+          className={`min-h-[calc(100vh-120px)] ${
+            location.pathname != "/" && "pt-[6rem]"
+          }`}
+        >
           <Outlet />
         </main>
         {location.pathname != "/login" && location.pathname != "/sign-up" && (

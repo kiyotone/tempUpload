@@ -95,7 +95,7 @@ const HorizontalCardProduct = ({ category, heading }) => {
                   <div className="flex w-full flex-col items-center justify-between px-14 pt-2">
                     <div className="grid gap-y-10 ">
                       <div className="items-center flex flex-col">
-                        <h2 className="capitalize font-medium text-[2rem] md:text-[2rem] text-ellipsis line-clamp-1 text-black">
+                        <h2 className="capitalize font-medium text-[2rem] md:text-[2rem] text-ellipsis line-clamp-1 text-black horizontalCard-text">
                           {product?.productName}
                         </h2>
                         <div className="flex gap-5 justify-center items-center">
