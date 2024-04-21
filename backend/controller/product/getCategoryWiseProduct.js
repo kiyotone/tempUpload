@@ -1,3 +1,4 @@
+const { enjectRatings } = require("../../helpers/enjectRating")
 const productModel = require("../../models/productModel")
 
 const getCategoryWiseProduct = async(req,res)=>{
@@ -6,7 +7,7 @@ const getCategoryWiseProduct = async(req,res)=>{
         const product = await productModel.find({ category })
 
         res.json({
-            data : product,
+            data : await enjectRatings(product),
             message : "Product",
             success : true,
             error : false

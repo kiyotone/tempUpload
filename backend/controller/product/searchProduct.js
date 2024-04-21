@@ -1,3 +1,4 @@
+const { enjectRatings } = require("../../helpers/enjectRating")
 const productModel = require("../../models/productModel")
 
 const searchProduct = async(req,res)=>{
@@ -19,7 +20,7 @@ const searchProduct = async(req,res)=>{
 
 
         res.json({
-            data  : product ,
+            data  : await enjectRatings(product) ,
             message : "Search Product list",
             error : false,
             success : true

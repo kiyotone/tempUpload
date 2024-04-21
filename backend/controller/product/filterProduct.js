@@ -1,4 +1,5 @@
 const productModel = require("../../models/productModel")
+const enjectRating = require("../../helpers/enjectRating")
 
 const filterProductController = async(req,res)=>{
  try{
@@ -10,8 +11,14 @@ const filterProductController = async(req,res)=>{
             }
         })
 
+        const productsWithRating = []
+        for (let i = 0; i < product.length; i++) {
+            const productWithRating = await enjectRating(product[i])
+            productsWithRating.push(productWithRating)
+        }
+
         res.json({
-            data : product,
+            data : productsWithRating,
             message : "product",
             error : false,
             success : true
