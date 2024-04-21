@@ -11,10 +11,18 @@ const Home = () => {
       <BannerProduct />
       <CategoryList />
 
-      <HorizontalCardProduct category={"Off-Road"} heading={"Off-Road"} />
+      <div className="mt-10">
+        <p className="italic text-sm text-center text-[#dc2626]">
+          Rider's Top Picks
+        </p>
+        <HorizontalCardProduct
+          category={"Off-Road"}
+          heading={"Popular Items"}
+        />
+      </div>
 
       {/* Book appointement */}
-      <div className="max-w-[1200px] mx-auto">
+      <div className="max-w-[900px] mx-auto">
         <p className="italic text-sm text-center text-[#dc2626]">
           Wanna connect? Time to book your mechanic
         </p>
@@ -22,7 +30,7 @@ const Home = () => {
 
         <div className="flex py-10">
           <div className="mx-10 my-5 flex flex-col  p-10 max-w-[45%]">
-            <div className="col-span-7 pr-[10rem]">
+            <div className="col-span-7">
               Easily schedule your bike service appointments online, connecting
               directly with our expert mechanics for efficient and convenient
               service.
