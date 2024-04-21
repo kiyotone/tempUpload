@@ -29,7 +29,8 @@ const addRatingController = require('../controller/rating/addRating')
 const myRatingsController = require('../controller/rating/myRatings')
 const productRatingsController = require('../controller/rating/productRatings')
 const deleteRatingController = require('../controller/rating/deleteRating')
-
+const forgotPasswordController = require('../controller/user/forgotPassword')
+const passwordRecoveryController = require('../controller/user/recoverPassword')
 
 
 router.post("/signup",userSignUpController)
@@ -69,6 +70,8 @@ router.get("/my-ratings",authToken, myRatingsController)
 router.get("/product-ratings", productRatingsController)
 router.post("/delete-rating",authToken, deleteRatingController)
 
-
+// Password Recovery
+router.post("/forgot-password",forgotPasswordController)
+router.post("/recover-password",passwordRecoveryController)
 
 module.exports = router
