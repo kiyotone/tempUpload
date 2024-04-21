@@ -29,7 +29,6 @@ const Header = () => {
 
   if (typeof window !== "undefined") {
     window.addEventListener("scroll", function () {
-      console.log(this.scrollY);
       if (this.scrollY > 300) {
         setBelow(true);
       } else {
@@ -76,7 +75,9 @@ const Header = () => {
     <div className="relative">
       <div
         className={`${
-          !searchDisplay || below ? "absolute translate-y-[-100px]" : "translate-y-0"
+          !searchDisplay || below
+            ? "absolute translate-y-[-100px]"
+            : "translate-y-0"
         }  w-100vw  ease-in-out duration-300`}
       >
         <div

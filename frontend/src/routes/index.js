@@ -11,7 +11,8 @@ import CategoryProduct from "../pages/CategoryProduct";
 import ProductDetails from "../pages/ProductDetails";
 import Cart from "../pages/Cart";
 import SearchProduct from "../pages/SearchProduct";
-import Booking from "../pages/Booking";
+import Appointment from "../pages/Appointment";
+import AllAppointments from "../pages/AllAppointments.js";
 
 const router = createBrowserRouter([
   {
@@ -51,8 +52,8 @@ const router = createBrowserRouter([
         element: <SearchProduct />,
       },
       {
-        path: "booking",
-        element: <Booking />,
+        path: "appointments",
+        element: <Appointment />,
       },
       {
         path: "admin-panel",
@@ -65,6 +66,10 @@ const router = createBrowserRouter([
           {
             path: "all-products",
             element: <AllProducts />,
+          },
+          {
+            path: "all-appointments",
+            element: <AllAppointments />,
           },
         ],
       },

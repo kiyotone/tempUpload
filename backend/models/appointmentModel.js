@@ -1,31 +1,38 @@
-// Model for appointments for bike repair 
+// Model for appointments for bike repair
 
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const appointmentSchema = new mongoose.Schema({
-    // User ID
-    userId: {
-        ref: 'user',
-        type: String
-    },
-    // Date
-    date: {
-        type: Date,
-        required: true
-    },
-    // Description of the problem
-    description: {
-        type: String,
-        required: false
-    },
-    // Product ID
-    productId: {
-        ref: 'product',
-        type: String,
-        required: false
-    },
-})
+  // User ID
+  userId: {
+    ref: "user",
+    type: String,
+  },
 
-const appointmentModel = mongoose.model("appointment", appointmentSchema)
+  vehicle_brand: {
+    type: String,
+    required: false,
+  },
+  model: {
+    type: String,
+    required: false,
+  },
+  payment_status: {
+    type: String,
+    required: false,
+  },
+  // Date
+  date: {
+    type: Date,
+    required: true,
+  },
+  // Description of the problem
+  description: {
+    type: String,
+    required: false,
+  }
+});
 
-module.exports = appointmentModel
+const appointmentModel = mongoose.model("appointment", appointmentSchema);
+
+module.exports = appointmentModel;
