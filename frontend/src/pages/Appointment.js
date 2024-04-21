@@ -7,7 +7,7 @@ const Appointment = () => {
   const userData = useSelector((state) => state?.user?.user);
 
   const [data, setData] = useState({
-    vehiecle_brand: "",
+    brand: "",
     model: "",
     payment_status: false,
     date: "",

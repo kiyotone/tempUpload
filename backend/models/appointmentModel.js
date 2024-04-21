@@ -9,7 +9,7 @@ const appointmentSchema = new mongoose.Schema({
     type: String,
   },
 
-  vehicle_brand: {
+  brand: {
     type: String,
     required: false,
   },

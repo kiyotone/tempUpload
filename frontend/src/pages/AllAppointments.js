@@ -27,6 +27,7 @@ const AllAppointments = () => {
 
   useEffect(() => {
     fetchAllAppointments();
+    console.log(allUser)
   }, []);
 
   return (
@@ -48,7 +49,7 @@ const AllAppointments = () => {
               <tr>
                 <td>{index + 1}</td>
                 <td>{el?.userId}</td>
-                <td>{el?.vehichle_brand}</td>
+                <td>{el?.vehiecle_brand}</td>
                 <td>{el?.model}</td>
                 <td>{moment(el?.date).format("LL")}</td>
                 {el.payment_status ? (
