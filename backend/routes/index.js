@@ -22,6 +22,9 @@ const updateAddToCartProduct = require('../controller/user/updateAddToCartProduc
 const deleteAddToCartProduct = require('../controller/user/deleteAddToCartProduct')
 const searchProduct = require('../controller/product/searchProduct')
 const filterProductController = require('../controller/product/filterProduct')
+const createAppointmentController = require('../controller/appointment/createAppointment')
+const deleteAppointmentController = require('../controller/appointment/deleteAppointment')
+const viewAppointmentController = require('../controller/appointment/viewAppointment')
 
 
 
@@ -51,9 +54,10 @@ router.get("/view-card-product",authToken,addToCartViewProduct)
 router.post("/update-cart-product",authToken,updateAddToCartProduct)
 router.post("/delete-cart-product",authToken,deleteAddToCartProduct)
 
-
-
-
+// Appointment
+router.post("/create-appointment",authToken, createAppointmentController)
+router.get("/view-appointment",authToken, viewAppointmentController)
+router.post("/delete-appointment",authToken, deleteAppointmentController)
 
 
 
