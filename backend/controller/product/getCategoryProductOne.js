@@ -1,5 +1,5 @@
 const productModel = require("../../models/productModel")
-
+const { enjectRatings } = require("../../helpers/enjectRating")
 
 const getCategoryProduct = async(req,res)=>{
     try{
@@ -21,7 +21,7 @@ const getCategoryProduct = async(req,res)=>{
 
         res.json({
             message : "category product",
-            data : productByCategory,
+            data : await enjectRatings(productByCategory),
             success : true,
             error : false
         })

@@ -1,3 +1,4 @@
+const { enjectRating } = require("../../helpers/enjectRating")
 const productModel = require("../../models/productModel")
 
 const getProductDetails = async(req,res)=>{
@@ -7,7 +8,7 @@ const getProductDetails = async(req,res)=>{
         const product = await productModel.findById(productId)
 
         res.json({
-            data : product,
+            data : await enjectRating(product),
             message : "Ok",
             success : true,
             error : false

@@ -1,3 +1,4 @@
+const { enjectRatings } = require("../../helpers/enjectRating")
 const productModel = require("../../models/productModel")
 
 const getProductController = async(req,res)=>{
@@ -8,7 +9,7 @@ const getProductController = async(req,res)=>{
             message : "All Product",
             success : true,
             error : false,
-            data : allProduct
+            data : await enjectRatings(allProduct)
         })
 
     }catch(err){

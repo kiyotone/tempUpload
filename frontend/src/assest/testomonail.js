@@ -3,7 +3,7 @@ export const testomonials = [
     testimonial:
       "The convenience of scheduling bike service appointments online has made my life so much easier. Their mechanics are top-notch, and I always trust them with my bike!",
     name: "Michael Smith",
-    job: "Professional Cyclist",
+    job: "Professional Bike Racer",
   },
   {
     testimonial:

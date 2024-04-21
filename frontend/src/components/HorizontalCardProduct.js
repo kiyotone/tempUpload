@@ -42,7 +42,11 @@ const HorizontalCardProduct = ({ category, heading }) => {
   };
 
   return (
-    <div className="container mx-auto px-4 pt-[60px] relative">
+    <div
+      className={`container mx-auto px-4  relative ${
+        heading == "Popular Items" ? "pt-[0]" : "pt-[60]"
+      }`}
+    >
       <h2 className="text-4xl font-semibold mb-10 text-center">{heading}</h2>
 
       <div

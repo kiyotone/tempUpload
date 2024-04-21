@@ -25,6 +25,10 @@ const filterProductController = require('../controller/product/filterProduct')
 const createAppointmentController = require('../controller/appointment/createAppointment')
 const deleteAppointmentController = require('../controller/appointment/deleteAppointment')
 const viewAppointmentController = require('../controller/appointment/viewAppointment')
+const addRatingController = require('../controller/rating/addRating')
+const myRatingsController = require('../controller/rating/myRatings')
+const productRatingsController = require('../controller/rating/productRatings')
+const deleteRatingController = require('../controller/rating/deleteRating')
 
 
 
@@ -58,6 +62,12 @@ router.post("/delete-cart-product",authToken,deleteAddToCartProduct)
 router.post("/create-appointment",authToken, createAppointmentController)
 router.get("/view-appointment",authToken, viewAppointmentController)
 router.post("/delete-appointment",authToken, deleteAppointmentController)
+
+// Rating
+router.post("/add-rating",authToken, addRatingController)
+router.get("/my-ratings",authToken, myRatingsController)
+router.get("/product-ratings", productRatingsController)
+router.post("/delete-rating",authToken, deleteRatingController)
 
 
 
