@@ -4,14 +4,15 @@ const appointmentModel = require("../../models/appointmentModel")
 
 const CreateAppointController = async(req,res)=>{
     try {
-        const { date, description, productId } = req?.body
+        const { date, description, vehicle_brand , model,  } = req?.body
         const currentUser = req.userId
 
         const payload = {
             date : date,
             description : description,
             userId : currentUser,
-            productId : productId
+            vehicle_brand  : vehicle_brand,
+            model : model
         }
 
         const newAppointment = new appointmentModel(payload)
