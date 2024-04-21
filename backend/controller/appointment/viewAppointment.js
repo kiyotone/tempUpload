@@ -13,7 +13,7 @@ const viewAppointmentsController = async (req, res) => {
     let appointments = await appointmentModel.find({
       userId: currentUser,
       ...(date && { date }),
-    });
+    }).populate("userId");
 
     if (showUpcommingOnly === "true" || showUpcommingOnly === true) {
       const currentDate = new Date();

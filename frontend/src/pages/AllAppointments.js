@@ -2,11 +2,9 @@ import React, { useEffect, useState } from "react";
 import SummaryApi from "../common";
 import { toast } from "react-toastify";
 import moment from "moment";
-import { MdModeEdit } from "react-icons/md";
-import ChangeUserRole from "../components/ChangeUserRole";
 
 const AllAppointments = () => {
-  const [allUser, setAllAppointments] = useState([]);
+  const [allAppointments, setAllAppointments] = useState([]);
 
   const fetchAllAppointments = async () => {
     const fetchData = await fetch(SummaryApi.viewAppointment.url, {
@@ -27,7 +25,7 @@ const AllAppointments = () => {
 
   useEffect(() => {
     fetchAllAppointments();
-    console.log(allUser)
+    console.log(allAppointments);
   }, []);
 
   return (
@@ -44,18 +42,22 @@ const AllAppointments = () => {
           </tr>
         </thead>
         <tbody className="">
-          {allUser.map((el, index) => {
+          {allAppointments.map((el, index) => {
             return (
               <tr>
                 <td>{index + 1}</td>
-                <td>{el?.userId}</td>
-                <td>{el?.vehiecle_brand}</td>
+                <td>{el?.userId.name}</td>
+                <td>{el?.brand}</td>
                 <td>{el?.model}</td>
                 <td>{moment(el?.date).format("LL")}</td>
                 {el.payment_status ? (
-                  <td className="text-green-600">PAYMENT DONE</td>
+                  <td>
+                    <div className="bg-green-600 text-white">PAYMENT DONE</div>
+                  </td>
                 ) : (
-                  <td className="text-red-700">PAYMENT PENDING</td>
+                  <td>
+                    <div className="bg-red-700 text-white">PAYMENT PENDING</div>
+                  </td>
                 )}{" "}
                 {/* <td>
                   <button
