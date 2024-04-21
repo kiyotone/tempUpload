@@ -42,7 +42,11 @@ const HorizontalCardProduct = ({ category, heading }) => {
   };
 
   return (
-    <div className="container mx-auto px-4 pt-[60px] relative">
+    <div
+      className={`container mx-auto px-4  relative ${
+        heading == "Popular Items" ? "pt-[0]" : "pt-[60]"
+      }`}
+    >
       <h2 className="text-4xl font-semibold mb-10 text-center">{heading}</h2>
 
       <div
@@ -95,7 +99,7 @@ const HorizontalCardProduct = ({ category, heading }) => {
                   <div className="flex w-full flex-col items-center justify-between px-14 pt-2">
                     <div className="grid gap-y-10 ">
                       <div className="items-center flex flex-col">
-                        <h2 className="capitalize font-medium text-[2rem] md:text-[2rem] text-ellipsis line-clamp-1 text-black">
+                        <h2 className="capitalize font-medium text-[2rem] md:text-[2rem] text-ellipsis line-clamp-1 text-black horizontalCard-text">
                           {product?.productName}
                         </h2>
                         <div className="flex gap-5 justify-center items-center">

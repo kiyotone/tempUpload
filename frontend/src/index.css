@@ -35,3 +35,14 @@ code {
 .horizontalCard:hover .horizontalCard-text{
   color: #f1bb47;
 }
+
+.testomonial::after{
+  content: '"';
+  position: absolute;
+  top: 6%;
+  z-index: 2;
+  color: #dc2626;
+  font-size: 40px;
+  font: italic;
+  left: 5%;
+}

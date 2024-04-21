@@ -12,6 +12,7 @@ module.exports = {
         "back-2": "url('../public/bakgrnd2.jpg')",
         "back-3": "url('../public/bakgrnd3.jpg')",
         "back-4": "url('../public/bakgrnd4.jpg')",
+        footer: "url('assest/footer.svg')",
       },
     },
   },

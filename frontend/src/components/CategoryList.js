@@ -35,6 +35,7 @@ const CategoryList = () => {
           : categoryProduct.map((product, index) => {
               return (
                 <Link
+                  reloadDocument
                   to={"/product-category?category=" + product?.category}
                   className="cursor-pointer flex flex-col justify-center items-center overflow-hidden  ease-in delay-100"
                   key={product?.category}
