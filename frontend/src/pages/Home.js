@@ -4,7 +4,7 @@ import BannerProduct from "../components/BannerProduct";
 import HorizontalCardProduct from "../components/HorizontalCardProduct";
 import book from "../assest/book.jpeg";
 import { testomonials } from "../assest/testomonail";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Home = () => {
   const navigate = useNavigate();

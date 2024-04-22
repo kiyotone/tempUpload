@@ -82,8 +82,8 @@ const SummaryApi = {
     method: "post",
   },
   viewAppointment: {
-    url: `${backendDomin}/api/view-appointment`,
-    method: "get",
+    url: `${backendDomin}/api/view-appointment/`,
+    method: "post",
   },
   deleteAppointment: {
     url: `${backendDomin}/api/delete-appointment`,
@@ -96,6 +96,18 @@ const SummaryApi = {
   recoverPassword: {
     url: `${backendDomin}/api/recover-password`,
     method: "post",
+  },
+  createOrder: {
+    url: `${backendDomin}/api/add-order`,
+    method: "post",
+  },
+  viewOrder: {
+    url: `${backendDomin}/api/view-order`,
+    method: "get",
+  },
+  allOrders: {
+    url: `${backendDomin}/api/all-orders`,
+    method: "get",
   },
 };
 

@@ -4,13 +4,31 @@ import axios from "axios"; // Import axios for making HTTP requests
 import config from "./khalticonfig";
 import SummaryApi from "../common";
 import displayINRCurrency from "../helpers/displayCurrency";
+import { useSelector } from "react-redux";
 
 const Khalti = () => {
   let checkout = new KhaltiCheckout(config);
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const { user } = useSelector((state) => state?.user);
 
   const SHIPPING = 1000;
+
+  const createOrder = async () => {
+    const response = await fetch(SummaryApi.createOrder.url, {
+      method: SummaryApi.createOrder.method,
+      credentials: "include",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({
+        userId: user._id,
+        carts: data.map((el) => el._id),
+      }),
+    });
+    const responseData = await response.json();
+    console.log(responseData);
+  };
 
   const fetchData = async () => {
     const response = await fetch(SummaryApi.addToCartProductView.url, {
@@ -126,9 +144,10 @@ const Khalti = () => {
               </div>
               <div className="border-x border-b p-7 border-slate-600">
                 <button
-                  onClick={() =>
-                    checkout.show({ amount: 1000, onSuccess: handleSuccess })
-                  }
+                  onClick={() => {
+                    checkout.show({ amount: 1000, onSuccess: handleSuccess });
+                    createOrder();
+                  }}
                   className="bg-blue-600 p-2 text-white w-full mt-2"
                 >
                   Pay

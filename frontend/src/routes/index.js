@@ -15,6 +15,8 @@ import Appointment from "../pages/Appointment";
 import AllAppointments from "../pages/AllAppointments.js";
 import RecoverPassword from "../pages/RecoverPassword.js";
 import Khalti from "../khalti/khalti.jsx";
+import Profile from "../pages/Profile.js";
+import AllOrders from "../pages/AllOrders.js";
 
 const router = createBrowserRouter([
   {
@@ -66,6 +68,10 @@ const router = createBrowserRouter([
         element: <Khalti />,
       },
       {
+        path: "profile",
+        element: <Profile />,
+      },
+      {
         path: "admin-panel",
         element: <AdminPanel />,
         children: [
@@ -80,6 +86,10 @@ const router = createBrowserRouter([
           {
             path: "all-appointments",
             element: <AllAppointments />,
+          },
+          {
+            path: "all-orders",
+            element: <AllOrders />,
           },
         ],
       },
