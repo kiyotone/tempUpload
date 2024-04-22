@@ -64,7 +64,7 @@ router.post("/delete-cart-product",authToken,deleteAddToCartProduct)
 
 // Appointment
 router.post("/create-appointment",authToken, createAppointmentController)
-router.get("/view-appointment",authToken, viewAppointmentController)
+router.post("/view-appointment",authToken, viewAppointmentController)
 router.post("/delete-appointment",authToken, deleteAppointmentController)
 
 // Rating

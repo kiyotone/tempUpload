@@ -4,14 +4,12 @@ const appointmentModel = require("../../models/appointmentModel");
 
 const viewAppointmentsController = async (req, res) => {
   try {
-    const currentUser = req.userId;
+    const currentUser = req?.body?.userId;
     const date = req?.query?.date;
-    const showUpcommingOnly = req?.query?.showUpcommingOnly || true;
-
-    console.log(showUpcommingOnly);
+    const showUpcommingOnly = req?.body?.showUpcommingOnly || true;
 
     let appointments = await appointmentModel.find({
-      userId: currentUser,
+      ...(currentUser && { userId: currentUser }),
       ...(date && { date }),
     }).populate("userId");
 
