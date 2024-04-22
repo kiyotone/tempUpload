@@ -31,6 +31,9 @@ const productRatingsController = require('../controller/rating/productRatings')
 const deleteRatingController = require('../controller/rating/deleteRating')
 const forgotPasswordController = require('../controller/user/forgotPassword')
 const passwordRecoveryController = require('../controller/user/recoverPassword')
+const allOrdersController = require('../controller/order/allOrders')
+const addOrderController = require('../controller/order/addOrder')
+const viewOrderController = require('../controller/order/viewOrder')
 
 
 router.post("/signup",userSignUpController)
@@ -73,5 +76,10 @@ router.post("/delete-rating",authToken, deleteRatingController)
 // Password Recovery
 router.post("/forgot-password",forgotPasswordController)
 router.post("/recover-password",passwordRecoveryController)
+
+// Order
+router.get("/all-orders",authToken,allOrdersController)
+router.post("/add-order" ,addOrderController)
+router.get("/view-order", viewOrderController)
 
 module.exports = router
