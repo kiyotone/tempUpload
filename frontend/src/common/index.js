@@ -89,6 +89,14 @@ const SummaryApi = {
     url: `${backendDomin}/api/delete-appointment`,
     method: "post",
   },
+  forgotPassword: {
+    url: `${backendDomin}/api/forgot-password`,
+    method: "post",
+  },
+  recoverPassword: {
+    url: `${backendDomin}/api/recover-password`,
+    method: "post",
+  },
 };
 
 export default SummaryApi;

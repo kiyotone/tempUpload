@@ -4,8 +4,11 @@ import BannerProduct from "../components/BannerProduct";
 import HorizontalCardProduct from "../components/HorizontalCardProduct";
 import book from "../assest/book.jpeg";
 import { testomonials } from "../assest/testomonail";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+  const navigate = useNavigate();
+  
   return (
     <div className="flex flex-col">
       <BannerProduct />
@@ -35,7 +38,7 @@ const Home = () => {
               directly with our expert mechanics for efficient and convenient
               service.
             </div>
-            <button className="bg-[#dc2626] text-center text-white w-[10rem] py-3 rounded-lg my-10 hover:bg-[#f1bb47]">
+            <button onClick={()=> navigate('appointments')} className="bg-[#dc2626] text-center text-white w-[10rem] py-3 rounded-lg my-10 hover:bg-[#f1bb47]">
               Book
             </button>
           </div>
