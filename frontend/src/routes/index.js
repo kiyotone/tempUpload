@@ -13,6 +13,7 @@ import Cart from "../pages/Cart";
 import SearchProduct from "../pages/SearchProduct";
 import Appointment from "../pages/Appointment";
 import AllAppointments from "../pages/AllAppointments.js";
+import RecoverPassword from "../pages/RecoverPassword.js";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
       {
         path: "forgot-password",
         element: <ForgotPassowrd />,
+      },
+      {
+        path: "recover-password",
+        element: <RecoverPassword />,
       },
       {
         path: "sign-up",

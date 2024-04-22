@@ -7,6 +7,8 @@ import { testomonials } from "../assest/testomonail";
 import { Link } from "react-router-dom";
 
 const Home = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="flex flex-col">
       <BannerProduct />
