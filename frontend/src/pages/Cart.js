@@ -5,6 +5,7 @@ import displayINRCurrency from "../helpers/displayCurrency";
 import { MdDelete } from "react-icons/md";
 import { toast } from "react-toastify";
 import Khalti from "../khalti/khalti";
+import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
   const [data, setData] = useState([]);
@@ -250,7 +251,10 @@ const Cart = () => {
                 </div>
               </div>
               <div className="border-x border-b p-7 border-slate-600">
-                <button onClick={ navigate("/khalti") } className="bg-blue-600 p-2 text-white w-full mt-2">
+                <button
+                  onClick={() => navigate("/khalti")}
+                  className="bg-blue-600 p-2 text-white w-full mt-2"
+                >
                   Payment
                 </button>
               </div>
