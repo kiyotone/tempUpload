@@ -74,7 +74,7 @@ const SummaryApi = {
     method: "get",
   },
   filterProduct: {
-    url: `${backendDomin}/api/filter-product`,
+    url: `${backendDomin}/api/category-product`,
     method: "post",
   },
   createAppointment: {

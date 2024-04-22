@@ -62,27 +62,51 @@ const Appointment = () => {
 
   return (
     <div className=" flex flex-col items-center ">
-      <h1 className="text-3xl text-yellow-600 font-bold py-10">
+      <h1 className="text-4xl text-[#dc2626] py-10 uppercase">
         Book Your Service
       </h1>
       <form
         onSubmit={createBooking}
-        className="w-full h-full items-center flex flex-col text-2xl gap-y-5"
+        className="w-full h-full items-center flex flex-col text-2xl gap-y-5 text-[#555]"
       >
-        <label className="text-purple-500 font-semibold" htmlFor="brand">
-          Enter Your Vehicle Brand:
-        </label>
-        <input onChange={handleOnChange} type="brand" name="brand" id="brand" />
-        <label className="text-purple-500 font-semibold" htmlFor="model">
-          Enter Your Model:
-        </label>
-        <input onChange={handleOnChange} type="model" name="model" id="date" />
-        <label className="text-purple-500 font-semibold" htmlFor="date">
-          Choose a date:
-        </label>
-        <input onChange={handleOnChange} type="date" name="date" id="date" />
+        <div className="flex gap-5 items-center justify-center">
+          <label className="text-lg" htmlFor="brand">
+            Enter Your Vehicle Brand:
+          </label>
+          <input
+            onChange={handleOnChange}
+            type="brand"
+            name="brand"
+            id="brand"
+          />
+        </div>
 
-        <label className="text-purple-500 font-semibold" htmlFor="description">
+        <div className="flex gap-5 items-center justify-center">
+          <label className="text-lg" htmlFor="model">
+            Enter Your Model:
+          </label>
+          <input
+            onChange={handleOnChange}
+            type="model"
+            name="model"
+            id="date"
+          />
+        </div>
+
+        <div className="flex gap-5 items-center justify-center">
+          <labe className="text-lg" l htmlFor="date">
+            Choose a date:
+          </labe>
+          <input
+            onChange={handleOnChange}
+            type="date"
+            name="date"
+            id="date"
+            className="placeholder:bg-[#ddd]"
+          />
+        </div>
+
+        <label className="text-lg" htmlFor="description">
           Please Describe Your Problem:
         </label>
 
@@ -95,7 +119,7 @@ const Appointment = () => {
         ></textarea>
 
         <button
-          className="bg-purple-800 px-4 py-3 rounded-md text-white "
+          className="bg-[#f1bb47] px-6 py-2 text-lg rounded-md hover:bg-black hover:text-[#f1bb47] ease-in-out duration-500"
           type="submit"
         >
           Book
