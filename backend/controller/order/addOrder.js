@@ -1,39 +1,38 @@
 // Endpoint to add order
 
 const orderModel = require("../../models/orderModel");
+const addToCartModel = require("../../models/cartModel");
 
 const addOrderController = async (req, res) => {
     try {
-        const { userId, products } = req.body;
-
-        // products is an array of objects containing productId, quantity and price
-        // Example:
-        // products: [
-        //     {
-        //         productId: "product1",
-        //         quantity: 2,
-        //         price: 100
-        //     },
-        //     {
-        //         productId: "product2",
-        //         quantity: 1,
-        //         price: 50
-        //     }
-        // ]
-
-        // Calculate total price
-        let totalPrice = 0;
-        products.forEach(product => {
-            totalPrice += product.price * product.quantity;
-        });
+        const { userId, carts } = req.body;
         
-        if (!userId || !products ) {
+        // Carts is an array of cart IDs
+
+        if (!userId || !carts ) {
             return res.json({
                 message: "Please provide all the details",
                 success: false,
                 error: true,
             });
         }
+
+        // Iterate over the carts and get the product details
+        let totalPrice = 0;
+        const products = [];
+        for (let i = 0; i < carts.length; i++) {
+            const cart = await addToCartModel.findById(carts[i]);
+            const product = await productModel.findById(cart.productId);
+            products.push({
+                productId: cart.productId,
+                quantity: cart.quantity,
+            });
+            totalPrice += product.price * cart.quantity;
+
+            // Remove the cart
+            await addToCartModel.findByIdAndDelete(carts[i]);
+        }
+        
 
         const order = new orderModel({
         userId,
