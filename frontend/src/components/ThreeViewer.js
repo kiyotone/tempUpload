@@ -12,19 +12,24 @@ function ThreeViewer() {
   };
 
   return (
-    <div className=" h-[20rem] absolute pointer-events-none">
-      {selectedComponent === "Tshirt" ? (
-        <Tshirts toggle={() => toggleComponent("Polo")} />
-      ) : (
-        <Check toggles={() => toggleComponent("Tshirt")} />
-      )}
-      {/* <div>
+    <div className=" h-[50rem]">
+      <h1 className="text-5xl bg-gray-300 shadow-xl mx-80 mt-12 rounded-sm text-orange-600 text-center font-semibold  py-2">
+        3D Viewer
+      </h1>
+      <div>
+        {selectedComponent === "Tshirt" ? (
+          <Tshirts toggle={() => toggleComponent("Polo")} />
+        ) : (
+          <Check toggles={() => toggleComponent("Tshirt")} />
+        )}
+        {/* <div>
         <Draggable>
-          <div>
-            hi you can move me now
-          </div>
+        <div>
+        hi you can move me now
+        </div>
         </Draggable>
       </div> */}
+      </div>
     </div>
   );
 }
