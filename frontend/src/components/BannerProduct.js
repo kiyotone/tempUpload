@@ -1,6 +1,7 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import video from "../assest/video.mp4";
 
 import "swiper/css";
 import "swiper/css/pagination";
@@ -12,7 +13,7 @@ const BannerProduct = () => {
         spaceBetween={30}
         centeredSlides={true}
         autoplay={{
-          delay: 5000,
+          delay: 10000,
           disableOnInteraction: false,
         }}
         pagination={{
@@ -23,6 +24,22 @@ const BannerProduct = () => {
         className="mySwiper h-[100%]"
       >
         <SwiperSlide>
+          <div className="relative">
+            <div className="absolute left-[3%] bottom-[20%]  z-50  text-left pl-9 max-w-[50%]">
+              <p className="px-4 text-6xl uppercase font-bold text-[#F3F8FF]">
+                Ride into the Future
+              </p>
+              <p className="px-4 text-3xl font-bold  text-[#f1bb47]">
+                Where Quality Parts Meet Expert Service!
+              </p>
+            </div>
+            <video controls={false} autoPlay muted loop>
+              <source src={video} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
           <div className="bg-back-1 bg-center bg-cover bg-no-repeat h-full w-full"></div>
           <div className="mt-[-15rem] text-left pl-9 max-w-[50%]">
             <p className="px-4 text-6xl uppercase font-bold text-[#F3F8FF]">
@@ -31,9 +48,6 @@ const BannerProduct = () => {
             <p className="px-4 text-3xl font-bold  text-[#f1bb47]">
               Where Quality Parts Meet Expert Service!
             </p>
-            <button className=" mini:w-52 ml-2 mt-5 bg-[#E26EE5] hover:bg-black hover:text-white text-[#13070f] text-[8px] py-2 px-4 transition-all duration-300 ease-in-out  mini:text-4xl mobile:text-3xl mobile:w-40 w-[6rem]">
-              Shop Now
-            </button>
           </div>
         </SwiperSlide>
         <SwiperSlide>
@@ -45,9 +59,6 @@ const BannerProduct = () => {
             <h1 className="px-4  text-3xl font-bold  text-[#f1bb47]">
               Quality Parts, Expert Service!
             </h1>
-            <button className=" mini:w-52  ml-7 mt-5 bg-[#f25c48] hover:bg-black hover:text-white text-[#13070f] text-[12px] py-2 px-4 transition-all duration-300 ease-in-out  mini:text-4xl mobile:text-3xl mobile:w-40 w-[6rem]">
-              Shop Now
-            </button>
           </div>
         </SwiperSlide>
         <SwiperSlide>
@@ -59,9 +70,6 @@ const BannerProduct = () => {
             <h1 className="px-4   text-3xl font-bold text-[#f1bb47]">
               Premium Parts, Seamless Service!
             </h1>
-            <button className=" mini:w-52  ml-2 mt-5 bg-[#49ecb6] hover:bg-black hover:text-white text-[#13070f] text-[12px] py-2 px-4 transition-all duration-300 ease-in-out  mini:text-4xl mobile:text-3xl mobile:w-40 w-[6rem]">
-              Shop Now
-            </button>
           </div>
         </SwiperSlide>
         <SwiperSlide>
@@ -73,9 +81,6 @@ const BannerProduct = () => {
             <h1 className="px-4  text-3xl font-bold text-[#ffd14b]">
               Quality Parts, Expert Care!
             </h1>
-            <button className=" mini:w-52  ml-7 mt-5 bg-[#f25c48] hover:bg-black hover:text-white text-[#13070f] text-[12px] py-2 px-4 transition-all duration-300 ease-in-out  mini:text-4xl mobile:text-3xl mobile:w-40 w-[6rem]">
-              Shop Now
-            </button>
           </div>
         </SwiperSlide>
       </Swiper>
