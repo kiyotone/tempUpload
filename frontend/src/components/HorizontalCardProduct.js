@@ -5,6 +5,8 @@ import { FaAngleLeft, FaAngleRight } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import addToCart from "../helpers/addToCart";
 import Context from "../context";
+import { FaStar } from "react-icons/fa";
+import { CiStar } from "react-icons/ci";
 
 const HorizontalCardProduct = ({ category, heading }) => {
   const [data, setData] = useState([]);
@@ -84,6 +86,15 @@ const HorizontalCardProduct = ({ category, heading }) => {
               );
             })
           : data.map((product, index) => {
+              const renderStars = (numStars) => {
+                const stars = [];
+                for (let i = 0; i < 5; i++) {
+                  if (i < numStars)
+                    stars.push(<FaStar className="text-[#fcd53f]" />);
+                  else stars.push(<CiStar />);
+                }
+                return stars;
+              };
               return (
                 <Link
                   to={"product/" + product?._id}
@@ -120,13 +131,9 @@ const HorizontalCardProduct = ({ category, heading }) => {
                         </div>
                       </div>
                     </div>
-                    <div className="text-sm items-center flex flex-col pt-10 h-20 text-white w-full relative">
-                      {/* <button
-                        className=" w-[20rem] h-10 bg-red-600 hover:bg-red-700 rounded-sm transform skew-y-2"
-                        onClick={(e) => handleAddToCart(e, product?._id)}
-                      >
-                        Add to Cart
-                      </button> */}
+                    <div className="items-center flex pt-10 h-20 w-full max-w-[100px] mx-auto">
+                      {renderStars(product?.averageRating)} (
+                      {product?.averageRating}/5)
                     </div>
                   </div>
                 </Link>
