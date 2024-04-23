@@ -72,7 +72,7 @@ router.post("/finalize-appointment",authToken,finalizeAppointmentController) // 
 // Rating
 router.post("/add-rating",authToken, addRatingController)
 router.get("/my-ratings",authToken, myRatingsController)
-router.get("/product-ratings", productRatingsController)
+router.post("/product-ratings", productRatingsController)
 router.post("/delete-rating",authToken, deleteRatingController)
 
 // Password Recovery

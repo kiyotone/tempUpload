@@ -5,7 +5,8 @@ const averageRating = require('../../helpers/rating')
 
 const productRatingsController = async(req, res) => {
     try {
-        const productId = req?.query?.productId
+        console.log("query" , req.body.productId)
+        const productId = req?.body?.productId
 
         const ratings = await ratingModel.find({ ...(productId && { productId }) })
         const average = await averageRating(productId)

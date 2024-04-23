@@ -16,10 +16,49 @@ const ProductDetails = () => {
     price: "",
     sellingPrice: "",
   });
+
+  const [rating, setRating] = useState(null);
+  const [myRating,setMyRating] = useState(null);
+
   const params = useParams();
   const [loading, setLoading] = useState(true);
   const productImageListLoading = new Array(4).fill(null);
   const [activeImage, setActiveImage] = useState("");
+
+  const getMyRating = async () => {
+    const response = await fetch(SummaryApi.myRating.url, {
+      method: SummaryApi.myRating.method,
+      credentials: "include",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({
+        productId: params?.id,
+      }),
+    });
+    const data = await response.json();
+    console.log(data);
+  };
+
+  const sendRating = async () => {
+    const response = await fetch(SummaryApi.sendRating.url, {
+      method: SummaryApi.sendRating.method,
+      credentials: "include",
+      headers: {
+        "content-type": "application/json",
+      },
+
+      body: JSON.stringify({
+        productId: params?.id,
+        rating: rating,
+      }),
+    });
+    const data = await response.json();
+    console.log(data);
+
+    fetchProductDetails();
+    getMyRating();
+  };
 
   const [zoomImageCoordinate, setZoomImageCoordinate] = useState({
     x: 0,
@@ -53,6 +92,7 @@ const ProductDetails = () => {
 
   useEffect(() => {
     fetchProductDetails();
+    getMyRating();
   }, [params]);
 
   const handleMouseEnterProduct = (imageURL) => {
@@ -197,6 +237,20 @@ const ProductDetails = () => {
                 {displayINRCurrency(data.price)}
               </p>
             </div>
+            <p className="text-slate-600 font-semibold mt-2">
+              Average Rating: {data.averageRating}
+            </p>
+            <div className="flex flex-col mt-2">
+            MY :{ myRating}
+            </div>
+            <button
+              className="border border-red-600 rounded-sm px-3 py-1 w-32 h-10 text-red-600 font-medium hover:bg-red-600 hover:text-white"
+              onClick={sendRating}
+            >
+              SendRating
+            </button>
+
+            {/* Display selected rating */}
 
             <div className="flex items-center gap-3 my-2">
               <button

@@ -28,7 +28,7 @@ const finalizeAppointmentController = async(req, res) => {
             });
         }
 
-        const appointment = await appointmentModel.findById(appointment)
+        const appointment = await appointmentModel.findById(appointmentId)
         if (!appointment) {
             return res.json({
                 message: "Appointment not found",

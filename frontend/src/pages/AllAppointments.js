@@ -2,9 +2,23 @@ import React, { useEffect, useState } from "react";
 import SummaryApi from "../common";
 import { toast } from "react-toastify";
 import moment from "moment";
+import AppointmentModal from "../components/AppointmentModal";
+import ROLE from "../common/role";
+import { useSelector } from "react-redux";
 
 const AllAppointments = () => {
+  const user = useSelector((state) => state?.user?.user);
+
   const [allAppointments, setAllAppointments] = useState([]);
+  const [date, setdate] = useState();
+  const [openModal, setOpenModal] = useState(false);
+  const [selectedApp, setSelectedApp] = useState({});
+
+  const handleDateSelector = (data) => {
+    setSelectedApp(data);
+    console.log(data);
+    setOpenModal(true);
+  };
 
   const fetchAllAppointments = async () => {
     const fetchData = await fetch(SummaryApi.viewAppointment.url, {
@@ -13,6 +27,7 @@ const AllAppointments = () => {
     });
 
     const dataResponse = await fetchData.json();
+    console.log(dataResponse);
 
     if (dataResponse.success) {
       setAllAppointments(dataResponse.data);
@@ -25,7 +40,7 @@ const AllAppointments = () => {
 
   useEffect(() => {
     fetchAllAppointments();
-    console.log(allAppointments);
+    console.log(user.role);
   }, []);
 
   return (
@@ -39,12 +54,14 @@ const AllAppointments = () => {
             <th>Model</th>
             <th>Date</th>
             <th>Payment</th>
+            {user.role == ROLE.MECHANIC && <th>Action</th>}
           </tr>
         </thead>
         <tbody className="">
-          {allAppointments.map((el, index) => {
-            return (
-              <tr>
+          {allAppointments
+            .filter((el) => el.payment_status !== "finalized")
+            .map((el, index) => (
+              <tr key={index}>
                 <td>{index + 1}</td>
                 <td>{el?.userId.name}</td>
                 <td>{el?.brand}</td>
@@ -58,34 +75,29 @@ const AllAppointments = () => {
                   <td>
                     <div className="bg-red-700 text-white">PAYMENT PENDING</div>
                   </td>
-                )}{" "}
-                {/* <td>
-                  <button
-                    className="bg-green-100 p-2 rounded-full cursor-pointer hover:bg-green-500 hover:text-white"
-                    onClick={() => {
-                      setUpdateUserDetails(el);
-                      setOpenUpdateRole(true);
-                    }}
+                )}
+                {user.role == ROLE.MECHANIC && (
+                  <td
+                    onClick={() => handleDateSelector(el)}
+                    className="text-black cursor-pointer"
                   >
-                    <MdModeEdit />
-                  </button>
-                </td> */}
+                    Send Date
+                  </td>
+                )}
               </tr>
-            );
-          })}
+            ))}
         </tbody>
       </table>
 
-      {/* {openUpdateRole && (
-        <ChangeUserRole
-          onClose={() => setOpenUpdateRole(false)}
-          name={updateUserDetails.name}
-          email={updateUserDetails.email}
-          role={updateUserDetails.role}
-          userId={updateUserDetails._id}
-          callFunc={fetchAllAppointments}
+      {openModal && (
+        <AppointmentModal
+          selectedApp={selectedApp}
+          onClose={() => {
+            fetchAllAppointments();
+            setOpenModal(false);
+          }}
         />
-      )} */}
+      )}
     </div>
   );
 };

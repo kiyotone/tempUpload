@@ -109,6 +109,22 @@ const SummaryApi = {
     url: `${backendDomin}/api/all-orders`,
     method: "get",
   },
+  finalizeAppointment: {
+    url: `${backendDomin}/api/finalize-appointment`,
+    method: "post",
+  },
+  productRating: {
+    url: `${backendDomin}/api/product-ratings`,
+    method: "post",
+  },
+  sendRating: {
+    url: `${backendDomin}/api/add-rating`,
+    method: "post",
+  },
+  myRating: {
+    url: `${backendDomin}/api/my-ratings`,
+    method: "get",
+  },
 };
 
 export default SummaryApi;

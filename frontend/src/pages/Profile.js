@@ -92,7 +92,7 @@ const Profile = () => {
   }, [user]);
 
   return (
-    <div className=" mx-auto w-screen mt-8  ml-20">
+    <div className=" mx-auto  mt-8  ml-20">
       <div className="  flex  w-[60rem]  bg-white shadow-md rounded-lg overflow-hidden">
         <div className="md:flex flex flex-col mr-[10rem] ml-10">
           <div className="md:flex-shrink-0 ">
@@ -126,23 +126,40 @@ const Profile = () => {
           </div>
         </div>
         <div>
-          <div className="flex flex-col w-[30rem] pl-10 font-semibold text-md text-purple-600 items-center">
+          <div className="flex flex-col grid-cols-3 pl-10 font-semibold text-md text-purple-600 items-center">
             APPOINTMENTS
           </div>
           {data?.map((appointment) => (
             <div className="p-4 border border-gray-200">
-              <div className="uppercase tracking-wide text-sm text-indigo-500 font-semibold">
-                Date
+              <div className="flex flex-col gap-2">
+                <div className="flex flex-col">
+                  <div className="uppercase tracking-wide text-sm text-indigo-500 font-semibold">
+                    Date
+                  </div>
+                  <p className="text-gray-600">{appointment.date}</p>
+                </div>
+                <div className="flex flex-col">
+                  <div className="uppercase tracking-wide text-sm text-indigo-500 font-semibold mt-1">
+                    Brand
+                  </div>
+                  <p className="text-gray-600">{appointment.brand}</p>
+                </div>
+                <div className="flex flex-col">
+                  <div className="uppercase tracking-wide text-sm text-indigo-500 font-semibold mt-1">
+                    Model
+                  </div>
+                  <p className="text-gray-600">{appointment.model}</p>
+                </div>
+                <div className="flex flex-col">
+                  <div className="uppercase tracking-wide text-sm text-indigo-500 font-semibold mt-1">
+                    Status
+                  </div>
+                  <p className="text-gray-600 uppercase">
+                    {appointment.status}
+                  </p>
+                </div>
               </div>
-              <p className="text-gray-600">{appointment.date}</p>
-              <div className="uppercase tracking-wide text-sm text-indigo-500 font-semibold mt-1">
-                Brand
-              </div>
-              <p className="text-gray-600">{appointment.brand}</p>
-              <div className="uppercase tracking-wide text-sm text-indigo-500 font-semibold mt-1">
-                Model
-              </div>
-              <p className="text-gray-600">{appointment.model}</p>
+
               <div className="uppercase tracking-wide text-sm text-indigo-500 font-semibold mt-1">
                 Description
               </div>
@@ -153,24 +170,24 @@ const Profile = () => {
       </div>
       {isEditing && (
         <div className="fixed z-10 inset-0 overflow-y-auto">
-          <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+          <div className="flex items-end justify-center min-h-screen px-4 text-center sm:block sm:p-0">
             <div className="fixed inset-0 transition-opacity">
               <div className="absolute inset-0 bg-gray-500 opacity-75"></div>
             </div>
             <span className="hidden sm:inline-block sm:align-middle sm:h-screen"></span>
             &#8203;
-            <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+            <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all  sm:align-middle sm:max-w-lg sm:w-full">
               {/* Edit Profile Content */}
-              <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4 mx-10">
+              <div className="bg-white px-4 mx-10">
                 <div className="sm:flex sm:items-start">
-                  <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+                  <div className=" text-center mt-3 sm:ml-4 sm:text-left">
                     <h3 className="text-lg leading-6 font-medium text-gray-900">
                       Edit Profile
                     </h3>
                   </div>
                 </div>
               </div>
-              <div className="mt-5 mx-10 ">
+              <div className=" mx-10 ">
                 <div className="grid grid-cols-6 gap-6">
                   <div className="col-span-6 mt-5 sm:col-span-3">
                     <label
@@ -232,29 +249,31 @@ const Profile = () => {
                   />
                 </div>
 
-                <label htmlFor="productImage" className="mt-10">
-                  Product Image :
-                </label>
-                <label htmlFor="uploadImageInput">
-                  <div className="p-2 bg-slate-100 border rounded h-16  flex justify-center items-center cursor-pointer">
-                    <div className="text-slate-500 flex justify-center items-center flex-col gap-2">
-                      <span className="text-xl">
-                        <FaCloudUploadAlt />
-                      </span>
-                      <p className="text-sm">Upload Product Image</p>
-                      <input
-                        type="file"
-                        id="uploadImageInput"
-                        className="hidden"
-                        onChange={handleUploadUser}
-                      />
+                <div className=" flex flex-col">
+                  <label htmlFor="productImage" className="mt-2">
+                    Profile Picture :
+                  </label>
+                  <label htmlFor="uploadImageInput">
+                    <div className="p-2 bg-slate-100 border rounded h-16  flex justify-center items-center cursor-pointer">
+                      <div className="text-slate-500 flex justify-center items-center flex-col gap-2">
+                        <span className="text-xl">
+                          <FaCloudUploadAlt />
+                        </span>
+                        <p className="text-sm">Upload Profile Picture</p>
+                        <input
+                          type="file"
+                          id="uploadImageInput"
+                          className="hidden"
+                          onChange={handleUploadUser}
+                        />
+                      </div>
                     </div>
-                  </div>
-                </label>
+                  </label>
+                </div>
               </div>
               {/* Edit Profile Buttons */}
 
-              <div className=" flex mt-8 justify-between mb-10">
+              <div className=" flex mt-8 justify-between mb-7">
                 <div className="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
                   <button
                     onClick={handleSubmit}

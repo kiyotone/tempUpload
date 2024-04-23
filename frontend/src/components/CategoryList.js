@@ -22,7 +22,7 @@ const CategoryList = () => {
 
   return (
     <div className="container mx-auto mt-1 mb-[48px]">
-      <div className="grid grid-cols-3 items-center justify-between overflow-scroll scrollbar-none gap-1">
+      <div className="grid grid-flow-col auto-rows-max items-center justify-between overflow-scroll scrollbar-none gap-1">
         {loading
           ? categoryLoading.map((el, index) => {
               return (
@@ -37,7 +37,7 @@ const CategoryList = () => {
                 <Link
                   reloadDocument
                   to={"/product-category?category=" + product?.category}
-                  className="cursor-pointer flex flex-col justify-center items-center overflow-hidden  ease-in delay-100"
+                  className="cursor-pointer w-[40rem] flex flex-col justify-center items-center overflow-hidden  ease-in delay-100"
                   key={product?.category}
                 >
                   <div
