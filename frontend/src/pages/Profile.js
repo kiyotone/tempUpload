@@ -1,19 +1,28 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import SummaryApi from "../common";
+import Context from "../context";
+import ROLE from "../common/role";
+import { FaCloudUploadAlt } from "react-icons/fa";
+import uploadImage from "../helpers/uploadImage";
 
 const Profile = () => {
   const user = useSelector((state) => state?.user?.user);
   const [data, setData] = useState([]);
   const [isEditing, setIsEditing] = useState(false); // State to manage the edit modal visibility
   const [userData, setUserData] = useState({
+    userId: user?._id,
     name: user?.name,
     email: user?.email,
     role: user?.role,
+    profilePic: user?.profilePic,
   });
+
+  const { fetchUserDetails } = useContext(Context);
 
   const toggleEditModal = () => {
     setUserData({
+      userId: user?._id,
       name: user?.name,
       email: user?.email,
       role: user?.role,
@@ -21,12 +30,25 @@ const Profile = () => {
     setIsEditing(!isEditing);
   };
 
-  console.log("user", user);
-
   const handleChange = (e) => {
     setUserData({
       ...userData,
       [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleUploadUser = async (e) => {
+    const file = e.target.files[0];
+
+    const uploadImageCloudinary = await uploadImage(file);
+
+    console.log("uploadImageCloudinary", uploadImageCloudinary);
+
+    setUserData((preve) => {
+      return {
+        ...preve,
+        profilePic: uploadImageCloudinary.url,
+      };
     });
   };
 
@@ -42,6 +64,7 @@ const Profile = () => {
 
     const responseData = await response.json();
     console.log("responseData", responseData);
+    fetchUserDetails();
   };
 
   const getAppointments = async () => {
@@ -51,6 +74,7 @@ const Profile = () => {
       headers: {
         "content-type": "application/json",
       },
+      body: JSON.stringify({ userId: user?._id }),
     });
 
     const responseData = await response.json();
@@ -62,8 +86,10 @@ const Profile = () => {
   };
 
   useEffect(() => {
-    getAppointments();
-  }, []);
+    if (user?._id) {
+      getAppointments();
+    }
+  }, [user]);
 
   return (
     <div className=" mx-auto w-screen mt-8  ml-20">
@@ -164,61 +190,71 @@ const Profile = () => {
                     />
                   </div>
 
-                  <div className="col-span-6 mt-5 sm:col-span-3">
+                  <div className="col-span-6 sm:col-span-4">
                     <label
                       htmlFor="role"
                       className="block text-sm font-medium text-gray-700"
                     >
-                      Role
+                      Role{" "}
                     </label>
-                    <input
-                      onChange={handleChange}
-                      type="text"
-                      name="role"
-                      id="role"
-                      autoComplete="family-name"
+                    <select
+                      className="border px-4 py-1"
                       value={userData?.role}
-                      className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                    />
-                  </div>
-
-                  <div className="col-span-6 mt-5 sm:col-span-4">
-                    <label
-                      htmlFor="email"
-                      className="block text-sm font-medium text-gray-700"
-                    >
-                      Email address
-                    </label>
-                    <input
+                      id="role"
+                      name="role"
                       onChange={handleChange}
-                      type="text"
-                      name="email"
-                      id="email"
-                      autoComplete="email"
-                      value={userData?.email}
-                      className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                    />
+                    >
+                      {Object.values(ROLE).map((el) => {
+                        return (
+                          <option value={el} key={el}>
+                            {el}
+                          </option>
+                        );
+                      })}
+                    </select>
                   </div>
                 </div>
-
-                <div className="mt-5">
+                <div className="col-span-6 mt-7 mb-7 sm:col-span-4">
                   <label
-                    htmlFor="profilePic"
+                    htmlFor="email"
                     className="block text-sm font-medium text-gray-700"
                   >
-                    Profile Picture
+                    Email address
                   </label>
                   <input
-                    type="file"
-                    name="profilePic"
-                    id="profilePic"
+                    onChange={handleChange}
+                    type="text"
+                    name="email"
+                    id="email"
+                    autoComplete="email"
+                    value={userData?.email}
                     className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                   />
                 </div>
+
+                <label htmlFor="productImage" className="mt-10">
+                  Product Image :
+                </label>
+                <label htmlFor="uploadImageInput">
+                  <div className="p-2 bg-slate-100 border rounded h-16  flex justify-center items-center cursor-pointer">
+                    <div className="text-slate-500 flex justify-center items-center flex-col gap-2">
+                      <span className="text-xl">
+                        <FaCloudUploadAlt />
+                      </span>
+                      <p className="text-sm">Upload Product Image</p>
+                      <input
+                        type="file"
+                        id="uploadImageInput"
+                        className="hidden"
+                        onChange={handleUploadUser}
+                      />
+                    </div>
+                  </div>
+                </label>
               </div>
               {/* Edit Profile Buttons */}
 
-              <div className=" flex mt-12 justify-between mb-10">
+              <div className=" flex mt-8 justify-between mb-10">
                 <div className="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
                   <button
                     onClick={handleSubmit}

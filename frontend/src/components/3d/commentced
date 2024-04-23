@@ -1,0 +1,44 @@
+// const handleFileUpload = (e) => {
+  //   const file = e.target.files[0];
+  //   if (file) {
+  //     const reader = new FileReader();
+
+  //     reader.onload = (event) => {
+  //       const logoUrl = event.target.result;
+
+  //       if (gltf.current && gltf.current.scene) {
+  //         const tshirtObject = gltf.current.scene;
+
+  //         tshirtObject.traverse((child) => {
+  //           if (child.isMesh && child.name === "front") {
+  //             const texture = new THREE.TextureLoader().load(logoUrl);
+  //             texture.flipY = false;
+
+  //             // Adjust the offset and repeat values to control placement and size
+  //             texture.offset.set(0.2, 0.2); // Adjust these values as needed
+  //             texture.repeat.set(0.6, 0.6); // Adjust these values as needed
+
+  //             // Configure the material to support transparency
+  //             child.material = new THREE.MeshPhongMaterial({
+  //               map: texture,
+  //               transparent: true, // Enable transparency
+  //               alphaTest: 0.5, // Adjust the alphaTest value as needed
+  //             });
+  //           }
+  //         });
+  //       }
+  //     };
+
+  //     reader.readAsDataURL(file);
+  //   }
+  // };
+
+
+
+
+                           {/* <h4 className="mx-2">Upload Logo</h4>
+                            <input
+                              type="file"
+                              accept=".png, .jpg, .jpeg"
+                              onChange={handleFileUpload}
+                            /> */}
