@@ -10,6 +10,7 @@ import { toast } from "react-toastify";
 import { setUserDetails } from "../store/userSlice";
 import ROLE from "../common/role";
 import Context from "../context";
+import logo from "../assest/2wheels2.png";
 
 const Header = () => {
   const user = useSelector((state) => state?.user?.user);
@@ -104,8 +105,8 @@ const Header = () => {
         <div className=" h-full container mx-auto flex items-center pl-2 justify-between">
           <div className="">
             <Link to={"/"}>
-              <RiMotorbikeFill className="text-white h-10 w-10" />
-            </Link>
+                <img src={logo} alt="logo" className="w-16 h-16 rounded-full" /> 
+              </Link>
           </div>
 
           <div className="text-white flex justify-around gap-5 items-center">

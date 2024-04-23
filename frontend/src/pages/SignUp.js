@@ -6,7 +6,6 @@ import { Link, useNavigate } from "react-router-dom";
 import SummaryApi from "../common";
 import { toast } from "react-toastify";
 import uploadImage from "../helpers/uploadImage";
-import login from "../assest/login.png";
 
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
