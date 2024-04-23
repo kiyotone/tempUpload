@@ -17,7 +17,7 @@ const allOrdersController = async (req, res) => {
             });
         }
 
-        const orders = await orderModel.find({});
+        const orders = await orderModel.find({}).populate("products.productId").populate("userId");
 
         res.json({
             orders,

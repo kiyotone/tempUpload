@@ -57,8 +57,12 @@ const Login = () => {
 
   return (
     <section id="login" className="flex items-center">
-      <div className="w-[60rem] h-full">{/* IMAGE */}</div>
-      <div className="mx-auto w-[30rem] p-4">
+      <div className="w-[60rem]  flex">
+        <div className=" pl-20 text-orange absolute top-[20rem] font-bold text-[5rem] items-center animate-pulse duration-[6000ms] ease-in-out">
+          WELCOME BACK
+        </div>
+      </div>
+      <div className="mx-auto w-[32rem] p-4">
         <div className="bg-white p-5 w-full ">
           <div className="w-20 h-20 mx-auto rounded-full overflow-hidden">
             <img src={loginIcons} alt="login icons" />

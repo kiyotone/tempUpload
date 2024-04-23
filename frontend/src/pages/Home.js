@@ -4,7 +4,8 @@ import BannerProduct from "../components/BannerProduct";
 import HorizontalCardProduct from "../components/HorizontalCardProduct";
 import book from "../assest/book.jpeg";
 import { testomonials } from "../assest/testomonail";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import ThreeViewer from "../components/ThreeViewer";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -13,6 +14,8 @@ const Home = () => {
     <div className="flex flex-col">
       <BannerProduct />
       <CategoryList />
+
+      <ThreeViewer />
 
       <div className="mt-10">
         <p className="italic text-sm text-center text-[#dc2626]">

@@ -71,9 +71,13 @@ const SignUp = () => {
   };
 
   return (
-    <section id="signup" className="flex items-center h-screen">
-      <div className="w-[60rem] h-full">{/* IMAGE */}</div>
-      <div className="mx-auto w-[30rem] p-4">
+    <section id="signup" className=" flex items-center ">
+      <div className="w-[60rem]  flex">
+        <div className=" pl-20 text-orange absolute top-[20rem] font-bold text-[5rem] items-center animate-pulse duration-[6000ms] ease-in-out">
+          GETTING STARTED
+        </div>
+      </div>
+      <div className="mx-auto w-[32rem] px-4">
         <div className="bg-white p-5 w-full ">
           <div className="w-20 h-20 mx-auto relative overflow-hidden rounded-full">
             <div>
@@ -93,7 +97,10 @@ const SignUp = () => {
             </form>
           </div>
 
-          <form className="pt-6 flex flex-col gap-2" onSubmit={handleSubmit}>
+          <form
+            className="pt-6 h-[30rem] flex flex-col gap-2"
+            onSubmit={handleSubmit}
+          >
             <div className="relative mt-[2rem]">
               <input
                 type="text"
@@ -196,20 +203,20 @@ const SignUp = () => {
               </div>
             </div>
 
-            <button className="bg-red-600 hover:bg-red-700 text-white px-6 py-2 w-full max-w-[150px] rounded-full hover:scale-110 transition-all mx-auto block mt-6">
+            <button className="bg-red-600 hover:bg-red-700 text-white px-6 py-2 w-full max-w-[150px] rounded-full hover:scale-110 transition-all mx-auto block mt-4">
               Sign Up
             </button>
-          </form>
 
-          <p className="my-5 pl-8 text-gray-400">
-            Already have account ?{" "}
-            <Link
-              to={"/login"}
-              className=" text-red-600 hover:text-red-700 hover:underline"
-            >
-              Login
-            </Link>
-          </p>
+            <p className="pl-8 pt-2 text-gray-400">
+              Already have account ?{" "}
+              <Link
+                to={"/login"}
+                className=" text-red-600 hover:text-red-700 hover:underline"
+              >
+                Login
+              </Link>
+            </p>
+          </form>
         </div>
       </div>
     </section>
