@@ -17,6 +17,14 @@ const addOrderController = async (req, res) => {
             });
         }
 
+        if (cart.length === 0) {
+            return res.json({
+                message: "Please add products to the cart",
+                success: false,
+                error: true,
+            });
+        }
+
         // Iterate over the carts and get the product details
         let totalPrice = 0;
         const products = [];

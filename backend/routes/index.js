@@ -34,6 +34,7 @@ const passwordRecoveryController = require('../controller/user/recoverPassword')
 const allOrdersController = require('../controller/order/allOrders')
 const addOrderController = require('../controller/order/addOrder')
 const viewOrderController = require('../controller/order/viewOrder')
+const finalizeAppointmentController = require('../controller/appointment/finalizeAppointment')
 
 
 router.post("/signup",userSignUpController)
@@ -66,6 +67,7 @@ router.post("/delete-cart-product",authToken,deleteAddToCartProduct)
 router.post("/create-appointment",authToken, createAppointmentController)
 router.post("/view-appointment",authToken, viewAppointmentController)
 router.post("/delete-appointment",authToken, deleteAppointmentController)
+router.post("/finalize-appointment",authToken,finalizeAppointmentController) // Only for mechanic
 
 // Rating
 router.post("/add-rating",authToken, addRatingController)
